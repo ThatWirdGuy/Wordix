@@ -118,6 +118,9 @@
 
         const script = document.createElement("script");
         script.src = loaderUrl;
+        script.onerror = () => {
+            alert('CRASH: Failed to load Unity loader script: ' + loaderUrl);
+        };
         script.onload = () => {
             StartUnityInstance = function () {
                 createUnityInstance(canvas, config, (progress) => {
@@ -130,6 +133,7 @@
                     loadingCover.style.display = "none";
                 }).catch((message) => {
                     console.error(message);
+                    alert('CRASH Unity Instance: ' + message);
                 });
             };
             
@@ -138,7 +142,11 @@
         };
 
         function StartUnityInstance_IfUnloaded() {
-            if (typeof StartUnityInstance === 'function' && spinner.style.display !== "none")
+            if (typeof StartUnityInstance !== 'function') {
+                alert('CRASH: StartUnityInstance is not a function - loader script may not have finished loading.');
+                return;
+            }
+            if (spinner.style.display !== "none")
                 StartUnityInstance();
         }
 
@@ -226,6 +234,7 @@
 
             } catch (e) {
                 console.error('CRASH Initialization SDK: ', e);
+                alert('CRASH Initialization SDK: ' + (e && e.message ? e.message : e));
             }
 
             if (!IsLocalHost() && !syncInit)
