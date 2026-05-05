@@ -1,660 +1,1461 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordix</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-<html lang="en-us">
-<head><meta http-equiv="Content-Security-Policy" content="child-src 'self' *.allwebgames.com *.games.yango.com *.gametok.com *.gametok.tech *.igrotok.com *.juegocasa.com *.playhop.com *.wowspiele.de *.yandex.az *.yandex.by *.yandex.co.il *.yandex.com *.yandex.com.am *.yandex.com.ge *.yandex.com.tr *.yandex.ee *.yandex.fr *.yandex.kg *.yandex.kz *.yandex.lt *.yandex.lv *.yandex.md *.yandex.ru *.yandex.tj *.yandex.tm *.yandex.ua *.yandex.uz *.yango.games-store.net allwebgames.com blob: games.yango.com gametok.com igrotok.com juegocasa.com playhop.com wowspiele.de yandex.az yandex.by yandex.co.il yandex.com yandex.com.am yandex.com.ge yandex.com.tr yandex.ee yandex.fr yandex.kg yandex.kz yandex.lt yandex.lv yandex.md yandex.ru yandex.tj yandex.tm yandex.ua yandex.uz; connect-src 'self' *.allwebgames.com *.eponesh.com *.gameanalytics.com *.games.yango.com *.gametok.com *.gametok.tech *.igrotok.com *.juegocasa.com *.playhop.com *.unity3d.com *.website.yandexcloud.net *.wowspiele.de *.yandex.az *.yandex.by *.yandex.co.il *.yandex.com *.yandex.com.am *.yandex.com.ge *.yandex.com.tr *.yandex.ee *.yandex.fr *.yandex.kg *.yandex.kz *.yandex.lt *.yandex.lv *.yandex.md *.yandex.net *.yandex.ru *.yandex.tj *.yandex.tm *.yandex.ua *.yandex.uz *.yango.games-store.net allwebgames.com blob: data: games.yango.com gametok.com igrotok.com juegocasa.com playhop.com storage.yandexcloud.net wowspiele.de wss://*.eponesh.com:* wss://qr-games.ru:* www.google-analytics.com www.googletagmanager.com yandex.az yandex.by yandex.co.il yandex.com yandex.com.am yandex.com.ge yandex.com.tr yandex.ee yandex.fr yandex.kg yandex.kz yandex.lt yandex.lv yandex.md yandex.ru yandex.tj yandex.tm yandex.ua yandex.uz yandexmetrica.com yastatic.net; default-src 'self'; font-src 'self' *.allwebgames.com *.games.yango.com *.gametok.com *.gametok.tech *.igrotok.com *.juegocasa.com *.playhop.com *.website.yandexcloud.net *.wowspiele.de *.yandex.az *.yandex.by *.yandex.co.il *.yandex.com *.yandex.com.am *.yandex.com.ge *.yandex.com.tr *.yandex.ee *.yandex.fr *.yandex.kg *.yandex.kz *.yandex.lt *.yandex.lv *.yandex.md *.yandex.ru *.yandex.tj *.yandex.tm *.yandex.ua *.yandex.uz *.yango.games-store.net allwebgames.com data: fonts.gstatic.com games.yango.com gametok.com igrotok.com juegocasa.com playhop.com storage.yandexcloud.net wowspiele.de yandex.az yandex.by yandex.co.il yandex.com yandex.com.am yandex.com.ge yandex.com.tr yandex.ee yandex.fr yandex.kg yandex.kz yandex.lt yandex.lv yandex.md yandex.ru yandex.tj yandex.tm yandex.ua yandex.uz yastat.net yastatic.net; frame-src 'self' *.allwebgames.com *.games.yango.com *.gametok.com *.gametok.tech *.igrotok.com *.juegocasa.com *.playhop.com *.website.yandexcloud.net *.wowspiele.de *.yandex.az *.yandex.by *.yandex.co.il *.yandex.com *.yandex.com.am *.yandex.com.ge *.yandex.com.tr *.yandex.ee *.yandex.fr *.yandex.kg *.yandex.kz *.yandex.lt *.yandex.lv *.yandex.md *.yandex.ru *.yandex.tj *.yandex.tm *.yandex.ua *.yandex.uz *.yango.games-store.net allwebgames.com games.yango.com gametok.com igrotok.com juegocasa.com localhost playhop.com wowspiele.de yandex.az yandex.by yandex.co.il yandex.com yandex.com.am yandex.com.ge yandex.com.tr yandex.ee yandex.fr yandex.kg yandex.kz yandex.lt yandex.lv yandex.md yandex.ru yandex.tj yandex.tm yandex.ua yandex.uz yastatic.net; img-src 'self' *.allwebgames.com *.eponesh.com *.games.yango.com *.gametok.com *.gametok.tech *.igrotok.com *.juegocasa.com *.playhop.com *.website.yandexcloud.net *.wowspiele.de *.yandex.az *.yandex.by *.yandex.co.il *.yandex.com *.yandex.com.am *.yandex.com.ge *.yandex.com.tr *.yandex.ee *.yandex.fr *.yandex.kg *.yandex.kz *.yandex.lt *.yandex.lv *.yandex.md *.yandex.net *.yandex.ru *.yandex.tj *.yandex.tm *.yandex.ua *.yandex.uz *.yango.games-store.net allwebgames.com blob: data: games.yango.com gametok.com igrotok.com juegocasa.com playhop.com storage.yandexcloud.net wowspiele.de yandex.az yandex.by yandex.co.il yandex.com yandex.com.am yandex.com.ge yandex.com.tr yandex.ee yandex.fr yandex.kg yandex.kz yandex.lt yandex.lv yandex.md yandex.ru yandex.tj yandex.tm yandex.ua yandex.uz yastatic.net; media-src 'self' *.allwebgames.com *.games.yango.com *.gametok.com *.gametok.tech *.igrotok.com *.juegocasa.com *.playhop.com *.website.yandexcloud.net *.wowspiele.de *.yandex.az *.yandex.by *.yandex.co.il *.yandex.com *.yandex.com.am *.yandex.com.ge *.yandex.com.tr *.yandex.ee *.yandex.fr *.yandex.kg *.yandex.kz *.yandex.lt *.yandex.lv *.yandex.md *.yandex.net *.yandex.ru *.yandex.tj *.yandex.tm *.yandex.ua *.yandex.uz *.yango.games-store.net allwebgames.com blob: data: games.yango.com gametok.com igrotok.com juegocasa.com playhop.com storage.yandexcloud.net wowspiele.de yandex.az yandex.by yandex.co.il yandex.com yandex.com.am yandex.com.ge yandex.com.tr yandex.ee yandex.fr yandex.kg yandex.kz yandex.lt yandex.lv yandex.md yandex.ru yandex.tj yandex.tm yandex.ua yandex.uz; object-src 'self' *.allwebgames.com *.games.yango.com *.gametok.com *.gametok.tech *.igrotok.com *.juegocasa.com *.playhop.com *.wowspiele.de *.yandex.az *.yandex.by *.yandex.co.il *.yandex.com *.yandex.com.am *.yandex.com.ge *.yandex.com.tr *.yandex.ee *.yandex.fr *.yandex.kg *.yandex.kz *.yandex.lt *.yandex.lv *.yandex.md *.yandex.ru *.yandex.tj *.yandex.tm *.yandex.ua *.yandex.uz *.yango.games-store.net allwebgames.com blob: games.yango.com gametok.com igrotok.com juegocasa.com playhop.com wowspiele.de yandex.az yandex.by yandex.co.il yandex.com yandex.com.am yandex.com.ge yandex.com.tr yandex.ee yandex.fr yandex.kg yandex.kz yandex.lt yandex.lv yandex.md yandex.ru yandex.tj yandex.tm yandex.ua yandex.uz; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.allwebgames.com *.eponesh.com *.gameanalytics.com *.games.yango.com *.gametok.com *.gametok.tech *.igrotok.com *.juegocasa.com *.playhop.com *.website.yandexcloud.net *.wowspiele.de *.ya.ru *.yandex.az *.yandex.by *.yandex.co.il *.yandex.com *.yandex.com.am *.yandex.com.ge *.yandex.com.tr *.yandex.ee *.yandex.fr *.yandex.kg *.yandex.kz *.yandex.lt *.yandex.lv *.yandex.md *.yandex.ru *.yandex.tj *.yandex.tm *.yandex.ua *.yandex.uz *.yango.games-store.net abt.s3.yandex.net allwebgames.com blob: data: games.yango.com gametok.com igrotok.com juegocasa.com playhop.com storage.yandexcloud.net wowspiele.de www.google-analytics.com www.googletagmanager.com ya.ru yandex.az yandex.by yandex.co.il yandex.com yandex.com.am yandex.com.ge yandex.com.tr yandex.ee yandex.fr yandex.kg yandex.kz yandex.lt yandex.lv yandex.md yandex.ru yandex.tj yandex.tm yandex.ua yandex.uz yastatic.net; style-src 'self' 'unsafe-eval' 'unsafe-inline' *.allwebgames.com *.games.yango.com *.gametok.com *.gametok.tech *.igrotok.com *.juegocasa.com *.playhop.com *.website.yandexcloud.net *.wowspiele.de *.yandex.az *.yandex.by *.yandex.co.il *.yandex.com *.yandex.com.am *.yandex.com.ge *.yandex.com.tr *.yandex.ee *.yandex.fr *.yandex.kg *.yandex.kz *.yandex.lt *.yandex.lv *.yandex.md *.yandex.ru *.yandex.tj *.yandex.tm *.yandex.ua *.yandex.uz *.yango.games-store.net allwebgames.com blob: data: fonts.googleapis.com games.yango.com gametok.com igrotok.com juegocasa.com playhop.com storage.yandexcloud.net wowspiele.de yandex.az yandex.by yandex.co.il yandex.com yandex.com.am yandex.com.ge yandex.com.tr yandex.ee yandex.fr yandex.kg yandex.kz yandex.lt yandex.lv yandex.md yandex.ru yandex.tj yandex.tm yandex.ua yandex.uz; worker-src 'self' *.allwebgames.com *.games.yango.com *.gametok.com *.gametok.tech *.igrotok.com *.juegocasa.com *.playhop.com *.website.yandexcloud.net *.wowspiele.de *.yandex.az *.yandex.by *.yandex.co.il *.yandex.com *.yandex.com.am *.yandex.com.ge *.yandex.com.tr *.yandex.ee *.yandex.fr *.yandex.kg *.yandex.kz *.yandex.lt *.yandex.lv *.yandex.md *.yandex.ru *.yandex.tj *.yandex.tm *.yandex.ua *.yandex.uz *.yango.games-store.net allwebgames.com blob: games.yango.com gametok.com igrotok.com juegocasa.com playhop.com storage.yandexcloud.net wowspiele.de yandex.az yandex.by yandex.co.il yandex.com yandex.com.am yandex.com.ge yandex.com.tr yandex.ee yandex.fr yandex.kg yandex.kz yandex.lt yandex.lv yandex.md yandex.ru yandex.tj yandex.tm yandex.ua yandex.uz"/>
-<meta charset="utf-8"/>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
-<link rel="stylesheet" href="./style.css"/>
-<!-- Yandex Games SDK -->
-<script src="/sdk.js"></script>
-<style>
-        canvas:focus {
-            outline: none;
+    <style>
+        /* --- Global Styles & CSS Variables --- */
+        :root {
+            --color-background: #fdfdff;
+            --color-text: #1a1a1a;
+            --color-primary: #4a69bd;
+            --color-secondary: #6a89cc;
+            
+            --color-key-bg: #d3d6da;
+            --color-key-text: #1a1a1a;
+            
+            --color-absent: #787c7e;
+            --color-present: #c9b458;
+            --color-correct: #6aaa64;
+            
+            --color-modal-bg: rgba(0, 0, 0, 0.6);
+            --color-modal-content-bg: var(--color-background);
+            
+            --font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+            --border-radius: 8px;
+            --transition-speed: 0.3s;
+        }
+
+        .dark-mode {
+            --color-background: #121213;
+            --color-text: #fdfdff;
+            --color-primary: #5c78bb;
+            --color-secondary: #7e99d4;
+            
+            --color-key-bg: #818384;
+            --color-key-text: #fdfdff;
+            
+            --color-absent: #3a3a3c;
+            --color-present: #b59f3b;
+            --color-correct: #538d4e;
+            
+            --color-modal-content-bg: #1f1f21;
+        }
+        
+        .color-blind {
+            --color-present: #f5793a; /* Orange */
+            --color-correct: #85c0f9; /* Blue */
         }
 
         html, body {
-            padding: 0;
             margin: 0;
-            overflow: hidden;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            -khtml-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-            -webkit-tap-highlight-color: rgba(0,0,0,0);
-            height: 100%;
-        }
-    </style>
-<!-- Additional head modules -->
-</head>
-<body class="dark">
-<div id="unity-container" class="unity-desktop">
-<canvas id="unity-canvas" tabindex="-1"></canvas>
-</div>
-<div id="loading-cover" style="display:none;">
-<div id="unity-loading-bar">
-<div id="unity-progress-bar-empty" style="display: none;">
-<div id="unity-progress-bar-full"></div>
-</div>
-<div class="spinner"></div>
-</div>
-</div>
-<!-- Additional body modules -->
-<script>
-        const hideFullScreenButton = "";
-        const buildUrl = "Build";
-        const loaderUrl = buildUrl + "/d799aa257793a9b6423f3988e48a65eb.loader.js";
-        const config = {
-            dataUrl: buildUrl + "/f63430c322c33c4352f816eed99b40f5.data.br",
-            frameworkUrl: buildUrl + "/263bf08a1201bf948a480999327e44cc.framework.js.br",
-            codeUrl: buildUrl + "/aadaadae5ba9eac6bb615ddfb60df42e.wasm.br",
-        streamingAssetsUrl: "StreamingAssets",
-            companyName: "naxalker",
-            productName: "5 букв",
-            productVersion: "1.0.3"
-        };
-
-        const container = document.querySelector("#unity-container");
-        const canvas = document.querySelector("#unity-canvas");
-        const loadingCover = document.querySelector("#loading-cover");
-        const progressBarEmpty = document.querySelector("#unity-progress-bar-empty");
-        const progressBarFull = document.querySelector("#unity-progress-bar-full");
-        const spinner = document.querySelector('.spinner');
-
-        const canFullscreen = (function () {
-            for (const key of [
-                'exitFullscreen',
-                'webkitExitFullscreen',
-                'webkitCancelFullScreen',
-                'mozCancelFullScreen',
-                'msExitFullscreen',
-            ]) {
-                if (key in document) {
-                    return true;
-                }
-            }
-            return false;
-        }());
-
-        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-            container.className = "unity-mobile";
-            
+            padding: 0;
+            /* font-size: 28px; */
+            font-family: var(--font-family);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        // The background image when loading the game. When building a build, the code changes depending on the project settings.
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 50vh;
+            max-height: 90vh;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* --- Header --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border-bottom: 1px solid var(--color-key-bg);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+            letter-spacing: 0.1rem;
+            font-weight: bold;
+        }
         
-        loadingCover.style.display = "";
-
-        let StartUnityInstance;
-        let ygGameInstance = null;
-        let ysdk = null;
-        let initYSDK = false;
-        let initGame = false;
-        let syncInit = false;
-        const NO_DATA = 'no data';
-
-        document.addEventListener('contextmenu', event => event.preventDefault());
-        function FocusGame() {
-            window.focus();
-            canvas.focus();
+        header .icon-buttons { display: flex; gap: 10px; }
+        .icon-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: var(--color-text);
+            transition: transform var(--transition-speed);
         }
-        window.addEventListener('pointerdown', () => {
-            FocusGame();
-        });
-        window.addEventListener('touchstart', () => {
-            FocusGame();
-        });
+        .icon-btn:hover { transform: scale(1.1); }
+        
+        /* --- Game Grid --- */
+#game-board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+    width: 70%;
+    max-width: 550px;
+    flex-grow: 1;
+}
+.row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+.tile {
+    position: relative; /* Added for child positioning */
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    aspect-ratio: 1 / 1;
+}
+.tile.flip { transform: rotateX(180deg); }
 
-        document.addEventListener('visibilitychange', function () {
-            if (ysdk !== null && initGame == true) {
-                if (document.hidden) {
-                    YG2Instance('SetFocusWindowGame', 'false');
-                }
-                else {
-                    YG2Instance('SetFocusWindowGame', 'true');
+/* NEW: Styles for front and back faces of the tile */
+.tile-front, .tile-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden; /* This is key: hides the side facing away */
+    transition: background-color 0.3s, border-color 0.3s;
+    border-radius: 4px; /* Optional: for smoother corners */
+}
 
-                    if ((ysdk.deviceInfo.isMobile() || ysdk.deviceInfo.isTablet()) && ysdk.screen.fullscreen.status == 'off')
-                        ysdk.screen.fullscreen.request();
-                }
-            }
-        });
+.tile-front {
+    border: 2px solid var(--color-key-bg);
+    color: var(--color-text);
+}
+.tile.filled .tile-front {
+    border-color: var(--color-text);
+}
 
-        const script = document.createElement("script");
-        script.src = loaderUrl;
-        script.onload = () => {
-            StartUnityInstance = function () {
-                createUnityInstance(canvas, config, (progress) => {
-                    spinner.style.display = "none";
-                    progressBarEmpty.style.display = "";
-                    const adjustedProgress = Math.max(progress, 0.05);
-                    progressBarFull.style.width = `${100 * adjustedProgress}%`;
-                }).then((unityInstance) => {
-                    ygGameInstance = unityInstance;
-                    loadingCover.style.display = "none";
-                }).catch((message) => {
-                    console.error(message);
-                });
-            };
+.tile-back {
+    background-color: var(--color-key-bg);
+    border: 2px solid var(--color-key-bg);
+    color: white;
+    transform: rotateX(180deg); /* Start the back side flipped over */
+}
+
+/* Color styles now apply to the tile-back */
+.tile.absent .tile-back { background-color: var(--color-absent); border-color: var(--color-absent); }
+.tile.present .tile-back { background-color: var(--color-present); border-color: var(--color-present); }
+.tile.correct .tile-back { background-color: var(--color-correct); border-color: var(--color-correct); }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        .row.shake { animation: shake 0.6s; }
+        
+        @keyframes dance {
+           20% { transform: translateY(-10px); }
+           40% { transform: translateY(5px); }
+           60% { transform: translateY(-7px); }
+           80% { transform: translateY(3px); }
+           100% { transform: translateY(0); }
+        }
+       .tile.dance { animation: dance 0.8s ease-in-out; }
+
+        /* --- Keyboard --- */
+        #keyboard {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .key-row {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+        }
+        .key {
+            font-family: inherit;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: 0;
+            padding: 0;
+            height: 58px;
+            flex-grow: 1;
+            flex-basis: 0;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+            background-color: var(--color-key-bg);
+            color: var(--color-key-text);
+            transition: background-color var(--transition-speed);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .key:hover { background-color: var(--color-secondary); }
+        .key.large { flex-grow: 1.5; font-size: 0.8em;}
+        .key.absent { background-color: var(--color-absent); color: white; }
+        .key.present { background-color: var(--color-present); color: white; }
+        .key.correct { background-color: var(--color-correct); color: white; }
+
+        /* --- Modals (Dialogs) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-modal-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: var(--color-modal-content-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--color-text);
+        }
+        .modal-content h2 { margin-top: 0; color: var(--color-primary); }
+        .modal-content p, .modal-content li { line-height: 1.6; }
+        .modal-content ul { padding-left: 20px; }
+        .modal-content .example-word { display: flex; gap: 5px; margin: 10px 0; }
+        .modal-content .example-tile { width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; border-radius: 4px; }
+        
+        /* --- Settings --- */
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--color-key-bg);
+        }
+        .setting-row:last-child { border-bottom: none; }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+        }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: var(--transition-speed);
+            border-radius: 28px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: var(--transition-speed);
+            border-radius: 50%;
+        }
+        input:checked + .slider { background-color: var(--color-primary); }
+        input:checked + .slider:before { transform: translateX(22px); }
+
+        .select-group select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid var(--color-key-bg);
+            background: var(--color-background);
+            color: var(--color-text);
+        }
+
+        /* --- AI vs AI Log --- */
+        #ai-log {
+            width: 90%;
+            margin-top: 20px;
+            background: var(--color-modal-content-bg);
+            border-radius: var(--border-radius);
+            padding: 15px;
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid var(--color-key-bg);
+        }
+        #ai-log h3 { margin-top: 0; }
+        .log-entry { font-family: 'Courier New', monospace; margin-bottom: 5px; }
+        .log-guess { display: inline-flex; gap: 2px; }
+        .log-tile {
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            margin-right: 1px;
+            text-align: center;
+            color: white;
+            padding: 2px;
+            border-radius: 2px;
+        }
+
+        /* --- General Button --- */
+        .primary-btn {
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color var(--transition-speed);
+            margin-top: 10px;
+        }
+        .primary-btn:hover { background-color: var(--color-secondary); }
+    </style>
+</head>
+<body>
+    <div id="app" @vue:mounted="init">
+
+        <!-- Audio Elements -->
+        <audio id="audio-music" loop src="sounds/And-So-It-Begins-Inspired-By-Crush-Sometimes(chosic.com).mp3"></audio>
+        <audio id="audio-guess" src="sounds/guess.mp3"></audio>
+        <audio id="audio-win" src="sounds/win.mp3"></audio>
+        <audio id="audio-lose" src="sounds/lose.mp3"></audio>
+        <audio id="audio-invalid" src="sounds/invalid.mp3"></audio>
+        <audio id="audio-type" src="sounds/type.mp3"></audio>
+
+        <!-- Header -->
+        <header>
+            <h1>Wordix</h1>
+            <div class="icon-buttons">
+                <button @click="restartGame" class="icon-btn" title="New Game / Rematch">↻</button>
+                <button @click="showModal = 'help'" class="icon-btn" title="How to Play">?</button>
+                <button @click="showModal = 'settings'" class="icon-btn" title="Settings">⚙️</button>
+            </div>
+        </header>
+
+                <!-- Main Game Area -->
+        <main style="flex-grow: 1; display: flex; flex-direction: column; width: 100%; align-items: center;">
             
-            if (IsLocalHost() || syncInit)
-                StartUnityInstance_IfUnloaded();
-        };
+            <!-- Game Board (Visible in both modes during play) -->
+            <div id="game-board" v-if="settings.playMode === 'human' || (settings.playMode === 'ai' && aiState.isRunning)">
+                <div v-for="(row, rowIndex) in grid" :key="rowIndex" class="row" :class="{shake: row.isShaking}">
+                    <div v-for="(tile, tileIndex) in row.tiles" 
+                         :key="tileIndex" 
+                         class="tile"
+                         :class="[{'flip': tile.status, 'filled': tile.char}, tile.status, {'dance': gameState.status === 'won' && rowIndex === gameState.currentRowIndex - 1}]"
+                         :style="{'transition-delay': `${tileIndex * 100}ms`}">
+                        <div class="tile-front">{{ tile.char }}</div>
+                        <div class="tile-back">{{ tile.char }}</div>
+                    </div>
+                </div>
+            </div>
 
-        function StartUnityInstance_IfUnloaded() {
-            if (spinner.style.display !== "none")
-                StartUnityInstance();
-        }
+            <!-- Keyboard (Human Player Only) -->
+            <div id="keyboard" v-if="settings.playMode === 'human'">
+                <div v-for="row in keyboard" class="key-row">
+                    <button v-for="key in row" 
+                            :key="key" 
+                            :class="['key', {'large': key.length > 1}, keyStatus[key.toLowerCase()]]"
+                            @click="handleKey(key)">
+                        {{ key }}
+                    </button>
+                </div>
+            </div>
 
-        function IsLocalHost() {
-            try {
-                if (window.top !== window) {
-                    console.warn("The application is running in an iframe");
-                    return false;
-                }
+            <!-- AI vs AI Mode Controls & Log -->
+            <div v-if="settings.playMode === 'ai'" style="width: 100%; text-align: center;">
+                <button @click="runAiVsAi" :disabled="aiState.isRunning" class="primary-btn">
+                    {{ aiState.isRunning ? 'AI Thinkin...' : 'New AI Game' }}
+                </button>
+                <div id="ai-log" v-if="aiState.log.length > 0">
+                    <h3>AI Game Log (Word: {{ aiState.isRevealed ? gameState.dailyWord : '???' }})</h3>
+                    <div v-for="entry in aiState.log" class="log-entry">
+                        <span>Guess {{ entry.guessNum }}:</span>
+                        <div class="log-guess">
+                             <span v-for="tile in entry.guessResult" class="log-tile" :style="{backgroundColor: getStatusColor(tile.status)}">
+                                {{ tile.char }}
+                            </span>
+                        </div>
+                        <span> ({{ entry.possibleWords }} words left)</span>
+                    </div>
+                    <div v-if="aiState.summary" style="margin-top: 10px; font-weight: bold;">
+                        {{ aiState.summary }}
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer></footer>
 
-                const host = window.location.hostname;
-                if (host === "localhost" || host === "127.0.0.1" || host.endsWith(".local")) {
-                    LogStyledMessage("Local Host");
-                    return true;
-                }
-            } 
-            catch (error) {
-                console.error("Error checking the local host:", error);
-                return false;
-            }
-        }
+        <!-- Help Modal -->
+        <div v-if="showModal === 'help'" class="modal-overlay" @click.self="showModal = null">
+            <div class="modal-content">
+                <button @click="showModal = null" class="modal-close-btn">&times;</button>
+                <h2>How to Play</h2>
+                <p>Guess the <strong>WORD</strong> in 6 tries.</p>
+                <ul>
+                    <li>Each guess must be a valid 5-letter word. Hit the enter button to submit.</li>
+                    <li>After each guess, the color of the tiles will change to show how close your guess was to the word.</li>
+                </ul>
+                <hr>
+                <strong>Examples</strong>
+                <div class="example-word">
+                    <div class="example-tile" :style="{backgroundColor: 'var(--color-correct)', border: '2px solid var(--color-correct)'}">W</div>
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">E</div>
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">A</div>
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">R</div>
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">Y</div>
+                </div>
+                <p><strong>W</strong> is in the word and in the correct spot.</p>
 
-        function YG2Instance(method) {
-            if (ygGameInstance == null)
-                return;
+                <div class="example-word">
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">P</div>
+                    <div class="example-tile" :style="{backgroundColor: 'var(--color-present)', border: '2px solid var(--color-present)'}">I</div>
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">L</div>
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">L</div>
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">S</div>
+                </div>
+                <p><strong>I</strong> is in the word but in the wrong spot.</p>
 
-            if (!initGame) {
-                setTimeout(function () {
-                    if (ygGameInstance)
-                        ygGameInstance.SendMessage('YG2Instance', method);
-                }, 100);
-            }
-            else {
-                ygGameInstance.SendMessage('YG2Instance', method);
-            }
+                <div class="example-word">
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">V</div>
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">A</div>
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">G</div>
+                    <div class="example-tile" :style="{backgroundColor: 'var(--color-absent)', border: '2px solid var(--color-absent)'}">U</div>
+                    <div class="example-tile" :style="{backgroundColor: 'transparent', border: '2px solid var(--color-key-bg)'}">E</div>
+                </div>
+                <p><strong>U</strong> is not in the word in any spot.</p>
+                <hr>
+                <p>A new word is available each reset!</p>
+            </div>
+        </div>
+
+        <!-- Settings Modal -->
+        <div v-if="showModal === 'settings'" class="modal-overlay" @click.self="showModal = null">
+            <div class="modal-content">
+                <button @click="showModal = null" class="modal-close-btn">&times;</button>
+                <h2>Settings</h2>
                 
-        }
-        function YG2Instance(method, arg) {
-            if (ygGameInstance == null)
-                return;
+                <div class="setting-row">
+                    <label for="playMode">Play Mode</label>
+                    <div class="select-group">
+                        <select id="playMode" v-model="settings.playMode">
+                            <option value="human">Human Player</option>
+                            <option value="ai">AI Player</option>
+                        </select>
+                    </div>
+                </div>
 
-            if (!initGame) {
-                setTimeout(function () {
-                    ygGameInstance.SendMessage('YG2Instance', method, arg);
-                }, 100);
-            }
-            else {
-                ygGameInstance.SendMessage('YG2Instance', method, arg);
-            }
-        }
+                <div class="setting-row">
+                    <label for="difficulty">Difficulty (Word List)</label>
+                    <div class="select-group">
+                        <select id="difficulty" v-model="settings.difficulty">
+                            <option value="easy">Easy</option>
+                            <option value="medium">Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="setting-row">
+                    <label>Dark Mode</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" v-model="settings.darkMode">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-row">
+                    <label>Color Blind Mode</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" v-model="settings.colorBlind">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-row">
+                    <label>Music</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" v-model="settings.music">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                
+                <div class="setting-row">
+                    <label>Sound Effects</label>
+                    <label class="toggle-switch">
+                        <input type="checkbox" v-model="settings.sound">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <button @click="restartGame" class="primary-btn">New Game / Rematch</button>
+            </div>
+        </div>
+        
+        <!-- Game Over Modal -->
+        <div v-if="showModal === 'gameover'" class="modal-overlay">
+             <div class="modal-content" style="text-align: center;">
+                <h2>{{ gameState.status === 'won' ? 'You Won!' : 'Game Over' }}</h2>
+                <p>The word was: <strong style="text-transform: uppercase;">{{ gameState.dailyWord }}</strong></p>
+                <p v-if="gameState.status === 'won'">You found it in {{ gameState.currentRowIndex }} guess{{ gameState.currentRowIndex > 1 ? 'es' : ''}}!</p>
+                <button @click="restartGame" class="primary-btn">New Game</button>
+             </div>
+        </div>
 
-        function LogStyledMessage(message, style) {
-            console.log('%c' + message, style);
-        }
-        function LogStyledMessage(message) {
-            console.log('%c' + message, 'color: #FFDF73; background-color: #454545');
-        }
+    </div>
 
-        InitYSDK();
-        async function InitYSDK() {
-            try {
-                if (IsLocalHost()) return;
+    <script>
 
-                ysdk = await YaGames.init();
+        const { createApp, ref, reactive, computed, watch, onMounted } = Vue;
 
-                // Additional init0 modules
-InterAdvShow();
+        // --- WORD LISTS ---
+        // A small, common list for daily answers to ensure words are familiar.
+        const ANSWER_WORDS = [
+          'abide', 'about', 'above', 'abuse', 'actor', 'acute', 'admit', 'adopt', 'adult', 'after', 'again', 'agent', 'agree', 'ahead', 'alarm', 'album', 'alert',
+          'alike', 'alive', 'allow', 'alone', 'along', 'alter', 'among', 'anger', 'angle', 'angry', 'apart', 'apple', 'apply', 'arena', 'argue', 'arise', 'array',
+          'aside', 'asset', 'audio', 'audit', 'avoid', 'award', 'aware', 'badly', 'baker', 'bases', 'basic', 'basis', 'beach', 'began', 'begin', 'begun', 'being',
+          'below', 'bench', 'billy', 'birth', 'black', 'blame', 'blind', 'block', 'blood', 'board', 'boost', 'booth', 'bound', 'brain', 'brand', 'bread', 'break',
+          'breed', 'brief', 'bring', 'broad', 'broke', 'brown', 'build', 'built', 'buyer', 'cable', 'calif', 'carry', 'catch', 'cause', 'chain', 'chair', 'chart',
+          'chase', 'cheap', 'check', 'chest', 'chief', 'child', 'china', 'chose', 'civil', 'claim', 'class', 'clean', 'clear', 'click', 'clock', 'close', 'coach',
+          'coast', 'could', 'count', 'court', 'cover', 'craft', 'crane', 'crash', 'cream', 'crime', 'cross', 'crowd', 'crown', 'curve', 'cycle', 'daily', 'dance',
+          'dated', 'dealt', 'death', 'debut', 'delay', 'depth', 'doing', 'doubt', 'dozen', 'draft', 'drama', 'drawn', 'dream', 'dress', 'drill', 'drink', 'drive',
+          'drove', 'dying', 'eager', 'early', 'earth', 'eight', 'elite', 'empty', 'enemy', 'enjoy', 'enter', 'equal', 'error', 'event', 'every', 'exact', 'exist',
+          'extra', 'faith', 'false', 'fault', 'fiber', 'field', 'fifth', 'fifty', 'fight', 'final', 'first', 'fixed', 'flash', 'fleet', 'floor', 'fluid', 'focus',
+          'force', 'forth', 'forty', 'forum', 'found', 'frame', 'frank', 'fraud', 'fresh', 'front', 'fruit', 'fully', 'funny', 'giant', 'given', 'glass', 'globe',
+          'going', 'grace', 'grade', 'grand', 'grant', 'grass', 'great', 'green', 'gross', 'group', 'grown', 'guard', 'guess', 'guest', 'guide', 'happy', 'harry',
+          'heart', 'heavy', 'hence', 'henry', 'horse', 'hotel', 'house', 'human', 'ideal', 'image', 'index', 'inner', 'input', 'issue', 'irony', 'juice', 'joint',
+          'jones', 'judge', 'known', 'label', 'large', 'laser', 'later', 'laugh', 'layer', 'learn', 'lease', 'least', 'leave', 'legal', 'level', 'lewis', 'light',
+          'limit', 'links', 'lives', 'local', 'logic', 'loose', 'lower', 'lucky', 'lunch', 'lying', 'magic', 'major', 'maker', 'march', 'maria', 'match', 'maybe',
+          'mayor', 'meant', 'media', 'metal', 'might', 'minor', 'minus', 'mixed', 'model', 'money', 'month', 'moral', 'motor', 'mount', 'mouse', 'mouth', 'movie',
+          'music', 'needs', 'never', 'newly', 'night', 'noise', 'north', 'noted', 'novel', 'nurse', 'occur', 'ocean', 'offer', 'often', 'order', 'other', 'ought',
+          'paint', 'panel', 'paper', 'party', 'peace', 'peter', 'phase', 'phone', 'photo', 'piece', 'pilot', 'pitch', 'place', 'plain', 'plane', 'plant', 'plate',
+          'point', 'pound', 'power', 'press', 'price', 'pride', 'prime', 'print', 'prior', 'prize', 'proof', 'proud', 'prove', 'queen', 'quick', 'quiet', 'quite',
+          'radio', 'raise', 'range', 'rapid', 'ratio', 'reach', 'react', 'ready', 'refer', 'right', 'rival', 'river', 'robin', 'roger', 'roman', 'rough', 'round',
+          'route', 'royal', 'rural', 'scale', 'scene', 'scope', 'score', 'sense', 'serve', 'seven', 'shall', 'shape', 'share', 'sharp', 'sheet', 'shelf', 'shell',
+          'shift', 'shirt', 'shock', 'shoot', 'short', 'shown', 'sight', 'since', 'sixth', 'sixty', 'sized', 'skill', 'sleep', 'slide', 'small', 'smart', 'smile',
+          'smith', 'smoke', 'solid', 'solve', 'sorry', 'sound', 'south', 'space', 'spare', 'speak', 'speed', 'spend', 'spent', 'split', 'spoke', 'sport', 'staff',
+          'stage', 'stake', 'stand', 'start', 'state', 'steam', 'steel', 'stick', 'still', 'stock', 'stone', 'stood', 'store', 'storm', 'story', 'strip', 'stuck',
+          'study', 'stuff', 'style', 'sugar', 'suite', 'super', 'sweet', 'table', 'taken', 'taste', 'taxes', 'teach', 'teeth', 'terry', 'texas', 'thank', 'theft',
+          'their', 'theme', 'there', 'these', 'thick', 'thing', 'think', 'third', 'those', 'three', 'threw', 'throw', 'tight', 'times', 'tired', 'title', 'today',
+          'topic', 'total', 'touch', 'tough', 'tower', 'track', 'trade', 'train', 'treat', 'trend', 'trial', 'tried', 'tries', 'truck', 'truly', 'trust', 'truth',
+          'twice', 'under', 'undue', 'union', 'unity', 'until', 'upper', 'upset', 'urban', 'usage', 'usual', 'valid', 'value', 'video', 'virus', 'visit', 'vital',
+          'voice', 'waste', 'watch', 'water', 'wheel', 'where', 'which', 'while', 'white', 'whole', 'whose', 'woman', 'women', 'world', 'worry', 'worse', 'worst',
+          'worth', 'would', 'wound', 'write', 'wrong', 'wrote', 'yield', 'young', 'youth'
+        ];
+        
+        // A much larger list for validating guesses. Includes the answer words.
+        const VALID_GUESSES = [...new Set([...ANSWER_WORDS,
+          'aahed', 'aalii', 'aargh', 'aarti', 'abaca', 'abaci', 'abacs', 'abaft', 'abaka', 'abamp', 'aband', 'abash', 'abask', 'abaya', 'abbas', 'abbed', 'abbes',
+          'abeam', 'abear', 'abele', 'abers', 'abets', 'abies', 'abler', 'ables', 'ablet', 'ablow', 'abmho', 'abohm', 'aboil', 'aboma', 'aboon', 'abord', 'abore',
+          'abram', 'abray', 'abrim', 'abrin', 'abris', 'absey', 'absit', 'abuna', 'abune', 'abuts', 'abuzz', 'abyes', 'abysm', 'acais', 'acari', 'accas', 'accoy',
+          'acerb', 'acers', 'aceta', 'achar', 'ached', 'aches', 'achoo', 'acids', 'acidy', 'acing', 'acini', 'ackee', 'acker', 'acmes', 'acmic', 'acned', 'acnes',
+          'acock', 'acold', 'acred', 'acres', 'acros', 'acted', 'actin', 'acton', 'acyls', 'adaws', 'adays', 'adbot', 'addax', 'added', 'adder', 'addio', 'addle',
+          'adeem', 'adhan', 'adieu', 'adios', 'adits', 'adman', 'admen', 'admix', 'adobo', 'adown', 'adoze', 'adrad', 'adred', 'adsum', 'aduki', 'adunc', 'adust',
+          'advew', 'adyta', 'adzed', 'adzes', 'aecia', 'aedes', 'aegis', 'aeons', 'aerie', 'aeros', 'aesir', 'afald', 'afara', 'afars', 'afear', 'aflaj', 'afore',
+          'afrit', 'afros', 'agars', 'agas', 'agave', 'agaze', 'agene', 'agers', 'agger', 'aggie', 'aggri', 'aggro', 'aggry', 'aghas', 'agila', 'agios', 'agism',
+          'agist', 'agita', 'aglee', 'aglet', 'agley', 'agloo', 'aglus', 'agmas', 'agoge', 'agone', 'agons', 'agood', 'agria', 'agrin', 'agros', 'agued', 'agues',
+          'aguna', 'aguti', 'aheap', 'ahent', 'ahigh', 'ahind', 'ahing', 'ahint', 'ahold', 'ahull', 'ahuru', 'aidas', 'aided', 'aider', 'aides', 'aidoi', 'aidos',
+          'aiery', 'aigas', 'aighs', 'ailed', 'aimed', 'aimer', 'ainee', 'ainga', 'aioli', 'aired', 'airer', 'airns', 'airth', 'airts', 'aitch', 'aitus', 'aiver',
+          'aiyee', 'aizle', 'ajies', 'ajiva', 'ajuga', 'ajwan', 'akees', 'akela', 'akene', 'aking', 'akita', 'akkas', 'alaap', 'alack', 'alamo', 'aland', 'alane',
+          'alang', 'alans', 'alant', 'alapa', 'alaps', 'alary', 'alate', 'alays', 'albas', 'albee', 'alcid', 'alcos', 'aldea', 'alder', 'aldol', 'aleck', 'alecs',
+          'alefs', 'aleft', 'aleph', 'alews', 'aleye', 'alfas', 'algal', 'algas', 'algid', 'algin', 'algor', 'algum', 'alias', 'alifs', 'aline', 'alist', 'aliya',
+          'alkie', 'alkos', 'alkyd', 'alkyl', 'allee', 'allel', 'allis', 'allod', 'allyl', 'almah', 'almas', 'almeh', 'almes', 'almud', 'almug', 'alods', 'aloed',
+          'aloes', 'aloha', 'aloin', 'aloos', 'alowe', 'altho', 'altos', 'alula', 'alums', 'alure', 'alvar', 'alway', 'amahs', 'amain', 'amate', 'amaut', 'amban',
+          'ambit', 'ambos', 'ambry', 'ameba', 'ameer', 'amene', 'amens', 'ament', 'amias', 'amice', 'amici', 'amide', 'amido', 'amids', 'amies', 'amiga', 'amigo',
+          'amine', 'amino', 'amins', 'amirs', 'amlas', 'amman', 'ammon', 'ammos', 'amnia', 'amnic', 'amnio', 'amoks', 'amole', 'amort', 'amour', 'amove', 'amowt',
+          'amped', 'ampul', 'amrit', 'amuck', 'amyls', 'anana', 'anata', 'ancho', 'ancle', 'ancon', 'andro', 'anear', 'anele', 'anent', 'angas', 'anglo', 'anigh',
+          'anile', 'anils', 'anima', 'animi', 'anion', 'anise', 'anker', 'ankhs', 'ankus', 'anlas', 'annal', 'annas', 'annat', 'anoas', 'anole', 'anomy', 'ansae',
+          'antae', 'antar', 'antas', 'anted', 'antes', 'antis', 'antra', 'antre', 'antsy', 'anura', 'anyon', 'apace', 'apage', 'apaid', 'apayd', 'apays', 'apeak',
+          'apeek', 'apers', 'apert', 'apery', 'apgar', 'aphis', 'apian', 'apiol', 'apish', 'apism', 'apode', 'apods', 'apoop', 'aport', 'appal', 'appay', 'appel',
+          'appro', 'appui', 'appuy', 'apres', 'apses', 'apsis', 'apsos', 'apted', 'apter', 'aquae', 'aquas', 'araba', 'araks', 'arame', 'arars', 'arbas', 'arced',
+          'arche', 'archi', 'arcos', 'arcus', 'ardeb', 'ardri', 'aread', 'areae', 'areal', 'arear', 'areas', 'areca', 'aredd', 'arede', 'arefy', 'areic', 'arene',
+          'arepa', 'arere', 'arete', 'arets', 'arett', 'argal', 'argan', 'argil', 'argle', 'argol', 'argon', 'argot', 'argus', 'arhat', 'arias', 'ariel', 'ariki',
+          'arils', 'ariot', 'arish', 'arked', 'arled', 'arles', 'armed', 'armer', 'armet', 'armil', 'arnas', 'arnut', 'aroba', 'aroha', 'aroid', 'aroma', 'arose',
+          'arpas', 'arpen', 'arrah', 'arras', 'arret', 'arris', 'arroz', 'arsed', 'arses', 'arsey', 'arsis', 'artal', 'artel', 'artic', 'artis', 'aruhe', 'arums',
+          'arval', 'arvee', 'arvos', 'aryls', 'asana', 'ascon', 'ascus', 'asdic', 'ashed', 'ashen', 'ashes', 'ashet', 'asked', 'asker', 'askoi', 'askos', 'aspen',
+          'asper', 'aspic', 'aspie', 'aspis', 'aspro', 'assai', 'assam', 'asses', 'assez', 'assot', 'aster', 'astir', 'astun', 'asura', 'asway', 'aswim', 'asyla',
+          'ataps', 'ataxy', 'atigi', 'atilt', 'atimy', 'atlas', 'atman', 'atmas', 'atmos', 'atocs', 'atoke', 'atoks', 'atoll', 'atoms', 'atomy', 'atony', 'atopy',
+          'atria', 'atrip', 'attap', 'attar', 'atuas', 'audad', 'auger', 'aught', 'aulas', 'aulic', 'auloi', 'aulos', 'aumil', 'aunes', 'aunts', 'aurae', 'aural',
+          'aurar', 'auras', 'aurei', 'aures', 'auric', 'auris', 'aurum', 'autos', 'auxin', 'avale', 'avant', 'avast', 'avels', 'avens', 'avers', 'avgas', 'avine',
+          'avion', 'avise', 'aviso', 'avize', 'avows', 'avyze', 'awarn', 'awato', 'awave', 'aways', 'awdls', 'aweel', 'aweto', 'awing', 'awmry', 'awned', 'awner',
+          'awols', 'awork', 'axels', 'axile', 'axils', 'axing', 'axion', 'axite', 'axled', 'axles', 'axman', 'axmen', 'axoid', 'axone', 'axons', 'ayahs', 'ayaya',
+          'ayelp', 'aygre', 'ayins', 'ayont', 'ayres', 'ayrie', 'azans', 'azide', 'azido', 'azine', 'azlon', 'azoic', 'azole', 'azons', 'azote', 'azoth', 'azuki',
+          'azurn', 'azury', 'azygy', 'azyme', 'azyms', 'baaed', 'baals', 'babas', 'babel', 'babes', 'babka', 'baboo', 'babul', 'babus', 'bacca', 'bacco', 'baccy',
+          'bacha', 'bachs', 'backs', 'baddy', 'baels', 'baffs', 'baffy', 'bafts', 'baghs', 'bagie', 'bahts', 'bahus', 'bahut', 'bails', 'bairn', 'baisa', 'baith',
+          'baits', 'baiza', 'baize', 'bajan', 'bajra', 'bajri', 'bajus', 'baked', 'baken', 'bakes', 'bakra', 'balas', 'balds', 'baldy', 'baled', 'bales', 'balks',
+          'balky', 'balls', 'bally', 'balms', 'balmy', 'baloo', 'balsa', 'balti', 'balun', 'balus', 'bambi', 'banak', 'banco', 'bancs', 'banda', 'bandh', 'bands',
+          'bandy', 'baned', 'banes', 'bangs', 'bania', 'banks', 'banns', 'bants', 'bantu', 'banty', 'banya', 'bapus', 'barbe', 'barbs', 'barby', 'barca', 'barde',
+          'bardo', 'bards', 'bardy', 'bared', 'barer', 'bares', 'barfi', 'barfs', 'baric', 'barks', 'barky', 'barms', 'barmy', 'barns', 'barny', 'barps', 'barra',
+          'barre', 'barro', 'barry', 'barye', 'basan', 'based', 'baser', 'basij', 'basks', 'bason', 'basse', 'bassi', 'basso', 'bassy', 'basta', 'baste', 'basti',
+          'basto', 'basts', 'bated', 'bates', 'baths', 'batik', 'batta', 'batts', 'battu', 'bauds', 'bauks', 'baulk', 'baurs', 'bavin', 'bawds', 'bawdy', 'bawks',
+          'bawls', 'bawns', 'bawrs', 'bawty', 'bayed', 'bayer', 'bayle', 'bayou', 'bayts', 'bazar', 'bazoo', 'beads', 'beady', 'beaks', 'beaky', 'beals', 'beams',
+          'beamy', 'beano', 'beans', 'beany', 'beare', 'bears', 'beath', 'beats', 'beaty', 'beaus', 'beaut', 'beaux', 'beaky', 'beals', 'beams', 'beamy', 'beano', 'beans', 'beany', 'beare', 'bears', 'beath', 'beats', 'beaty', 'beaus', 'beaut', 'beaux',
+          'bebop', 'becap', 'becke', 'becks', 'bedad', 'bedel', 'bedes', 'bedew', 'bedim', 'bedye', 'beech', 'beedi', 'beefs', 'beefy', 'beeps', 'beers', 'beery',
+          'beets', 'befit', 'befog', 'begad', 'begar', 'begem', 'begot', 'begum', 'beige', 'beigy', 'beins', 'bekah', 'belah', 'belar', 'belay', 'belee', 'belga',
+          'bells', 'belly', 'belon', 'belts', 'bemad', 'bemas', 'bemix', 'bemud', 'bends', 'bendy', 'benes', 'benet', 'benga', 'benis', 'benne', 'benni', 'benny',
+          'bento', 'bents', 'benty', 'bepat', 'beray', 'beres', 'bergs', 'berko', 'berks', 'berme', 'berms', 'berob', 'berry', 'berth', 'beryl', 'besat', 'besaw',
+          'besee', 'beses', 'beset', 'besit', 'besom', 'besot', 'besti', 'bests', 'betas', 'beted', 'betel', 'betes', 'beths', 'betid', 'beton', 'betta', 'betty',
+          'bever', 'bevor', 'bevue', 'bevvy', 'bewet', 'bewig', 'bezes', 'bezil', 'bezzy', 'bhais', 'bhaji', 'bhang', 'bhats', 'bhels', 'bhoot', 'bhuna', 'bhuts',
+          'biach', 'biali', 'bialy', 'bibbs', 'bibes', 'biccy', 'bicep', 'bices', 'bided', 'bider', 'bides', 'bidet', 'bidis', 'bidon', 'bield', 'biers', 'biffo',
+          'biffs', 'biffy', 'bifid', 'bigae', 'biggs', 'biggy', 'bigha', 'bight', 'bigly', 'bigos', 'bijou', 'biked', 'biker', 'bikes', 'bikie', 'bilbo', 'bilby',
+          'biled', 'biles', 'bilgy', 'bilks', 'bills', 'bimah', 'bimas', 'bimbo', 'binal', 'bindi', 'binds', 'biner', 'bines', 'bings', 'bingy', 'binit', 'binks',
+          'bints', 'biogs', 'biont', 'biota', 'biped', 'bipod', 'birds', 'birks', 'birle', 'birls', 'biros', 'birrs', 'birse', 'birsy', 'bises', 'bisks', 'bison',
+          'bitch', 'biter', 'bites', 'bitos', 'bitou', 'bitsy', 'bitte', 'bitts', 'bivia', 'bivvy', 'bizes', 'bizzo', 'bizzy', 'blabs', 'blads', 'blady', 'blaer',
+          'blaes', 'blaff', 'blags', 'blahs', 'blain', 'blare', 'blart', 'blase', 'blash', 'blast', 'blate', 'blats', 'blatt', 'blaud', 'blawn', 'blaws', 'blays',
+          'blear', 'bleat', 'blebs', 'blech', 'blees', 'blent', 'blert', 'bless', 'blest', 'blets', 'bleys', 'blimy', 'bling', 'blini', 'blins', 'bliny', 'blips',
+          'bliss', 'blist', 'blite', 'blits', 'blive', 'bloat', 'blobs', 'blocs', 'blogs', 'bloke', 'blond', 'blore', 'blots', 'blows', 'blowy', 'blubs', 'blude',
+          'bluds', 'bludy', 'blued', 'bluer', 'blues', 'bluet', 'bluey', 'bluff', 'bluid', 'blume', 'blunk', 'blurb', 'blurs', 'blurt', 'blush', 'blype', 'boabs',
+          'boaks', 'boars', 'boart', 'boats', 'bobac', 'bobak', 'bobas', 'bobol', 'bobos', 'bocca', 'bocce', 'bocci', 'boche', 'bocks', 'boded', 'bodes', 'bodge',
+          'bodhi', 'bodle', 'boeps', 'boets', 'boeuf', 'boffo', 'boffs', 'bogan', 'bogey', 'boggy', 'bogie', 'bogle', 'bogue', 'bogus', 'bohea', 'bohos', 'boils',
+          'boing', 'boink', 'boite', 'boked', 'bokes', 'bokos', 'bolar', 'bolas', 'bolds', 'boles', 'bolix', 'bolls', 'bolos', 'bolts', 'bolus', 'bomas', 'boney',
+          'bongo', 'bongs', 'bonie', 'bonks', 'bonne', 'bonny', 'bonza', 'bonze', 'boobs', 'booby', 'boody', 'booed', 'boofy', 'boogy', 'boohs', 'books', 'booky',
+          'bools', 'booms', 'boomy', 'boong', 'boons', 'boord', 'boors', 'boose', 'boots', 'boppy', 'borak', 'boral', 'boras', 'borde', 'bords', 'bored', 'boree',
+          'borel', 'borer', 'bores', 'borgo', 'boric', 'borks', 'borms', 'borna', 'boron', 'borts', 'borty', 'bortz', 'bosks', 'bosky', 'bosom', 'boson', 'bossy',
+          'bosun', 'botas', 'botel', 'botes', 'bothy', 'botte', 'botts', 'botty', 'bouge', 'bough', 'bouks', 'boule', 'boult', 'bouns', 'bousy', 'bouts', 'bovid',
+          'bowat', 'bowed', 'bowel', 'bower', 'bowes', 'bowet', 'bowie', 'bowls', 'bowne', 'bowrs', 'bowse', 'boxed', 'boxen', 'boxer', 'boxes', 'boxla', 'boxty',
+          'boyar', 'boyau', 'boyed', 'boyfs', 'boygs', 'boyla', 'boyos', 'boysy', 'bozos', 'braai', 'brach', 'brack', 'bract', 'brads', 'braes', 'brags', 'braid',
+          'brail', 'braks', 'braky', 'brame', 'brane', 'brank', 'brans', 'brant', 'brast', 'brats', 'brava', 'brave', 'bravi', 'bravo', 'braws', 'braxy', 'brays',
+          'braza', 'braze', 'bread', 'break', 'bream', 'brede', 'breds', 'breem', 'breer', 'brees', 'breid', 'breis', 'breme', 'brens', 'brent', 'brere', 'brers',
+          'breve', 'brews', 'breys', 'brier', 'bries', 'brigs', 'briki', 'briks', 'brill', 'brims', 'brins', 'brios', 'brise', 'brisk', 'briss', 'brith', 'brits',
+          'britt', 'brize', 'broch', 'brock', 'brods', 'brogh', 'brogs', 'broil', 'broke', 'brome', 'bromo', 'bronc', 'brond', 'broo', 'brood', 'brook', 'brool',
+          'broom', 'broos', 'brose', 'brosy', 'broth', 'brows', 'brugh', 'bruin', 'bruit', 'brule', 'brume', 'brung', 'brusk', 'brute', 'bruts', 'buats', 'buaze',
+          'bubal', 'bubas', 'bubba', 'bubbe', 'bubby', 'bubus', 'buchu', 'bucko', 'bucks', 'bucku', 'budas', 'buddy', 'budge', 'budis', 'budos', 'buffa', 'buffe',
+          'buffi', 'buffo', 'buffs', 'buffy', 'bufos', 'bufty', 'buhls', 'buhrs', 'buiks', 'buist', 'bukes', 'bulbs', 'bulge', 'bulgy', 'bulks', 'bulky', 'bulla',
+          'bulls', 'bully', 'bulse', 'bumbo', 'bumfs', 'bumph', 'bumps', 'bumpy', 'bunas', 'bunce', 'bunch', 'bunco', 'bunde', 'bundh', 'bunds', 'bundt', 'bundu',
+          'bundy', 'bungs', 'bungy', 'bunia', 'bunje', 'bunjy', 'bunko', 'bunks', 'bunns', 'bunny', 'bunts', 'bunty', 'bunya', 'buoys', 'buppy', 'buran', 'buras',
+          'burbs', 'burds', 'buret', 'burfi', 'burgh', 'burgs', 'burin', 'burka', 'burke', 'burks', 'burls', 'burly', 'burns', 'burnt', 'buroo', 'burps', 'burqa',
+          'burro', 'burrs', 'burry', 'bursa', 'burse', 'busby', 'bused', 'buses', 'busks', 'busky', 'bussu', 'busti', 'busts', 'busty', 'buteo', 'butes', 'butle',
+          'butoh', 'butte', 'butts', 'butty', 'butut', 'butyl', 'buxom', 'buzzy', 'bwana', 'bwazi', 'byded', 'bydes', 'byked', 'bykes', 'byres', 'byrls', 'byssi',
+          'bytes', 'byway', 'caaed', 'cabas', 'caber', 'cabob', 'caboc', 'cabre', 'cacas', 'cacks', 'cacky', 'cadee', 'cades', 'cadet', 'cadge', 'cadgy', 'cadie',
+          'cadis', 'cadre', 'caeca', 'caese', 'cafes', 'caffs', 'caged', 'cager', 'cages', 'cagot', 'cahow', 'caids', 'cains', 'caird', 'cajon', 'cajun', 'caked',
+          'cakes', 'cakey', 'calcs', 'calid', 'calif', 'calix', 'calks', 'calla', 'calls', 'calms', 'calmy', 'calos', 'calpa', 'calps', 'calve', 'calyx', 'caman',
+          'camas', 'cames', 'camis', 'camos', 'campi', 'campo', 'camps', 'campy', 'camus', 'caned', 'caneh', 'caner', 'canes', 'cangs', 'canid', 'canna', 'canns',
+          'canny', 'canoe', 'canon', 'canso', 'canst', 'canto', 'cants', 'canty', 'capas', 'caped', 'capes', 'capex', 'caphs', 'capiz', 'caple', 'capon', 'capos',
+          'capot', 'capri', 'capul', 'carap', 'carbo', 'carbs', 'carby', 'cardi', 'cards', 'cardy', 'cared', 'carer', 'cares', 'caret', 'carex', 'carks', 'carle',
+          'carls', 'carns', 'carny', 'carob', 'carol', 'carom', 'caron', 'carpi', 'carps', 'carrs', 'carse', 'carta', 'carte', 'carts', 'carve', 'carvy', 'casas',
+          'casco', 'cased', 'cases', 'casks', 'casky', 'casts', 'casus', 'cates', 'cauda', 'cauks', 'cauld', 'cauls', 'caums', 'caups', 'cauri', 'causa', 'cavas',
+          'caved', 'cavel', 'caver', 'caves', 'cavie', 'cawed', 'cawks', 'caxon', 'ceaze', 'cebid', 'cecal', 'cecum', 'cedar', 'ceded', 'ceder', 'cedes', 'cedis',
+          'ceiba', 'ceili', 'ceils', 'celeb', 'cella', 'celli', 'cells', 'celom', 'celts', 'cense', 'cento', 'cents', 'centu', 'ceorl', 'cepes', 'cerci', 'cered',
+          'ceres', 'cerge', 'ceria', 'ceric', 'cerne', 'ceroc', 'ceros', 'certs', 'certy', 'cesse', 'cesta', 'cesti', 'cetyl', 'cezve', 'chace', 'chack', 'chaco',
+          'chado', 'chads', 'chafe', 'chaff', 'chaft', 'chais', 'chals', 'chams', 'chana', 'chang', 'chank', 'chant', 'chaos', 'chape', 'chaps', 'chapt', 'chara',
+          'chare', 'chark', 'charr', 'chars', 'chary', 'chavs', 'chawk', 'chaws', 'chaya', 'chays', 'cheep', 'cheer', 'cheka', 'chela', 'chelp', 'chemo', 'chems',
+          'chere', 'chert', 'cheth', 'chevy', 'chews', 'chewy', 'chiao', 'chias', 'chibs', 'chica', 'chich', 'chico', 'chics', 'chiel', 'chiks', 'chile', 'chimb',
+          'chime', 'chimo', 'chimp', 'chine', 'ching', 'chink', 'chino', 'chins', 'chips', 'chirk', 'chirl', 'chirm', 'chiro', 'chirr', 'chirt', 'chiru', 'chits',
+          'chive', 'chivs', 'chivy', 'chizz', 'chock', 'choco', 'chocs', 'chode', 'chogs', 'choil', 'choir', 'choke', 'choko', 'choky', 'chola', 'choli', 'cholo',
+          'chomp', 'chons', 'choof', 'chook', 'choom', 'choon', 'chops', 'chord', 'chore', 'chose', 'chota', 'chott', 'chout', 'choux', 'chowk', 'chows', 'chubs',
+          'chuck', 'chufa', 'chuff', 'chugs', 'chums', 'churl', 'churn', 'churr', 'chuse', 'chute', 'chyle', 'chyme', 'chynd', 'cibol', 'cided', 'cides', 'ciels',
+          'ciggy', 'cilia', 'cills', 'cimar', 'cimex', 'cinch', 'cinct', 'cines', 'cinqs', 'cions', 'cippi', 'circs', 'cires', 'cirls', 'cirri', 'cisco', 'cissy',
+          'cists', 'cital', 'cited', 'citer', 'cites', 'cives', 'civet', 'civie', 'civvy', 'clach', 'clade', 'clads', 'claes', 'clags', 'clame', 'clamp', 'clams',
+          'clank', 'clans', 'claps', 'clapt', 'claro', 'clart', 'clary', 'clash', 'clasp', 'clast', 'clats', 'claut', 'clave', 'clavi', 'claws', 'clays', 'cleck',
+          'cleek', 'cleep', 'clefs', 'cleft', 'clegs', 'cleik', 'clems', 'clepe', 'clept', 'clerk', 'cleve', 'clews', 'clied', 'clies', 'clift', 'climb', 'clime',
+          'cline', 'cling', 'clink', 'clint', 'clipe', 'clips', 'clipt', 'clits', 'cloak', 'cloam', 'clomb', 'clomp', 'clone', 'clonk', 'clons', 'cloot', 'clope',
+          'clops', 'clote', 'clots', 'cloud', 'clour', 'clous', 'clout', 'clove', 'clown', 'cloys', 'cloze', 'clubs', 'clues', 'cluey', 'clump', 'clung', 'clunk',
+          'clype', 'cnida', 'coact', 'coady', 'coala', 'coals', 'coaly', 'coapt', 'coarb', 'coate', 'coati', 'coats', 'cobbs', 'cobby', 'cobia', 'coble', 'cobra',
+          'cobza', 'cocas', 'cocci', 'cocco', 'cocks', 'cocky', 'cocoa', 'cocos', 'codas', 'codec', 'coded', 'coden', 'coder', 'codes', 'codex', 'codon', 'coeds',
+          'coffs', 'cogie', 'cogon', 'cogue', 'cohab', 'cohen', 'cohoe', 'cohog', 'cohos', 'coifs', 'coign', 'coils', 'coins', 'coirs', 'coits', 'coked', 'cokes',
+          'colas', 'colby', 'colds', 'coled', 'coles', 'coley', 'colic', 'colin', 'colls', 'colly', 'colog', 'colts', 'colza', 'comae', 'comal', 'comas', 'combe',
+          'combi', 'combo', 'combs', 'comby', 'comer', 'comes', 'comet', 'comfy', 'comic', 'comix', 'commo', 'comms', 'commy', 'compo', 'comps', 'compt', 'comte',
+          'comus', 'coned', 'cones', 'coney', 'confs', 'conga', 'conge', 'congo', 'conia', 'conin', 'conks', 'conky', 'conne', 'conns', 'conte', 'conto', 'conus',
+          'convo', 'cooch', 'cooed', 'cooee', 'cooer', 'cooey', 'coofs', 'cooks', 'cooky', 'cools', 'cooly', 'coomb', 'cooms', 'coomy', 'coons', 'coops', 'coopt',
+          'coost', 'coots', 'cooze', 'copal', 'copay', 'coped', 'copen', 'coper', 'copes', 'coppy', 'copra', 'copsy', 'coqui', 'coram', 'corbe', 'corby', 'cords',
+          'cored', 'corer', 'cores', 'corey', 'corgi', 'coria', 'corks', 'corky', 'corms', 'corni', 'corno', 'corns', 'cornu', 'corps', 'corse', 'corso', 'cosec',
+          'cosed', 'coses', 'coset', 'cosey', 'cosie', 'costa', 'coste', 'costs', 'cotan', 'coted', 'cotes', 'coths', 'cotta', 'cotts', 'couch', 'coude', 'cough',
+          'coups', 'courb', 'courd', 'coure', 'cours', 'couth', 'coved', 'coven', 'cover', 'coves', 'covet', 'covey', 'covin', 'cowal', 'cowan', 'cowed', 'cower',
+          'cowks', 'cowls', 'cowps', 'cowry', 'coxae', 'coxal', 'coxed', 'coxes', 'coxib', 'coyau', 'coyed', 'coyer', 'coyly', 'coypu', 'cozed', 'cozen', 'cozes',
+          'cozey', 'cozie', 'craal', 'crabs', 'crags', 'craic', 'craig', 'crake', 'crame', 'cramp', 'crams', 'crans', 'crape', 'craps', 'crapy', 'crare', 'craws',
+          'crays', 'creds', 'creed', 'creek', 'creel', 'crees', 'crems', 'crena', 'crepe', 'creps', 'crept', 'crepy', 'cress', 'crest', 'crewe', 'crews', 'crias',
+          'cribs', 'cries', 'crims', 'crine', 'crios', 'cripe', 'crisp', 'crith', 'crits', 'croci', 'crocs', 'croft', 'crogs', 'cromb', 'crome', 'crone', 'cronk',
+          'crons', 'crony', 'crook', 'crool', 'croon', 'crops', 'crore', 'crost', 'croup', 'crout', 'crows', 'croze', 'cruck', 'crude', 'crudo', 'cruds', 'crudy',
+          'cruel', 'crues', 'cruet', 'cruft', 'crumb', 'crump', 'crunk', 'cruor', 'crura', 'cruse', 'crusy', 'cruve', 'crwth', 'cryer', 'crypt', 'ctene', 'cubby',
+          'cubeb', 'cubed', 'cuber', 'cubes', 'cubit', 'cuddy', 'cuffo', 'cuffs', 'cuifs', 'cuing', 'cuish', 'cuits', 'cukes', 'culch', 'culet', 'culex', 'culls',
+          'cully', 'culms', 'culpa', 'culti', 'cults', 'culty', 'cumec', 'cundy', 'cunei', 'cunit', 'cunts', 'cupel', 'cupid', 'cuppa', 'cuppy', 'curat', 'curbs',
+          'curch', 'curds', 'curdy', 'cured', 'curer', 'cures', 'curet', 'curfs', 'curia', 'curie', 'curli', 'curls', 'curly', 'curns', 'curny', 'currs', 'curry',
+          'curse', 'cursi', 'curst', 'cusec', 'cushy', 'cusks', 'cusps', 'cuspy', 'cusso', 'cusum', 'cutch', 'cuter', 'cutes', 'cutey', 'cutin', 'cutis', 'cutto',
+          'cutty', 'cutup', 'cuvee', 'cuzes', 'cwtch', 'cyano', 'cyans', 'cycad', 'cycas', 'cyclo', 'cyder', 'cylix', 'cymae', 'cymar', 'cymas', 'cymes', 'cymol',
+          'cysts', 'cytes', 'cyton', 'czars', 'daals', 'dabba', 'daces', 'dacha', 'dacks', 'dadah', 'dadas', 'dados', 'daffs', 'daffy', 'dagga', 'daggy', 'dagos',
+          'dahls', 'daiko', 'daine', 'daint', 'daker', 'daled', 'dales', 'dalis', 'dalle', 'dalts', 'daman', 'damar', 'dames', 'damme', 'damns', 'damps', 'dampy',
+          'dancy', 'dandy', 'dangs', 'danio', 'danks', 'danny', 'dants', 'daraf', 'darbs', 'darcy', 'dared', 'darer', 'dares', 'darga', 'dargs', 'daric', 'daris',
+          'darks', 'darky', 'darns', 'darre', 'darts', 'darzi', 'dashi', 'dashy', 'datal', 'dated', 'dater', 'dates', 'datos', 'datto', 'daube', 'daubs', 'dauby',
+          'dauds', 'dault', 'daunt', 'daurs', 'dauts', 'daven', 'davit', 'dawah', 'dawds', 'dawed', 'dawen', 'dawks', 'dawns', 'dawts', 'dayan', 'daych', 'daynt',
+          'dazed', 'dazer', 'dazes', 'deads', 'deair', 'deals', 'deans', 'deare', 'dearn', 'dears', 'deary', 'deash', 'deave', 'deaws', 'deawy', 'debag', 'debar',
+          'debby', 'debel', 'debes', 'debts', 'debud', 'debur', 'debus', 'debye', 'decad', 'decaf', 'decal', 'decan', 'decko', 'decks', 'decos', 'dedal', 'deeds',
+          'deedy', 'deely', 'deems', 'deens', 'deeps', 'deere', 'deers', 'deets', 'deeve', 'deevs', 'defat', 'deffo', 'defis', 'defog', 'degas', 'degum', 'degus',
+          'deice', 'deids', 'deify', 'deign', 'deils', 'deism', 'deist', 'deity', 'deked', 'dekes', 'dekko', 'deled', 'deles', 'delfs', 'delft', 'delis', 'dells',
+          'delly', 'delos', 'delph', 'delts', 'deman', 'demes', 'demic', 'demit', 'demob', 'demoi', 'demon', 'demos', 'dempt', 'demur', 'denar', 'denay', 'dench',
+          'denes', 'denet', 'denim', 'denis', 'dents', 'deoxy', 'derat', 'deray', 'dered', 'deres', 'derig', 'derma', 'derms', 'derns', 'derny', 'deros', 'derro',
+          'derry', 'derth', 'dervs', 'desex', 'deshi', 'desis', 'desks', 'desse', 'devas', 'devel', 'devis', 'devon', 'devos', 'devot', 'dewan', 'dewar', 'dewax',
+          'dewed', 'dexes', 'dexie', 'dhaba', 'dhaks', 'dhals', 'dhikr', 'dhobi', 'dhole', 'dholl', 'dhols', 'dhoti', 'dhows', 'dhuti', 'diact', 'dials', 'diane',
+          'diazo', 'dibbs', 'diced', 'dicer', 'dices', 'dicht', 'dicks', 'dicky', 'dicot', 'dicta', 'dicts', 'dicty', 'diddy', 'didie', 'didos', 'didst', 'diebs',
+          'diels', 'diene', 'diets', 'diffs', 'dight', 'dikas', 'diked', 'diker', 'dikes', 'dikey', 'dildo', 'dilli', 'dills', 'dilly', 'dimbo', 'dimer', 'dimes',
+          'dimps', 'dinar', 'dined', 'diner', 'dines', 'dinge', 'dingo', 'dings', 'dingy', 'dinic', 'dinks', 'dinky', 'dinna', 'dinos', 'dints', 'diols', 'dione',
+          'diota', 'dippy', 'dipso', 'diram', 'direr', 'dirke', 'dirks', 'dirls', 'dirts', 'dirty', 'disas', 'disci', 'discs', 'dishy', 'disks', 'disme', 'dital',
+          'ditas', 'dited', 'dites', 'ditsy', 'ditts', 'ditzy', 'divan', 'divas', 'dived', 'diver', 'dives', 'divis', 'divot', 'divvy', 'diwan', 'dixie', 'dixit',
+          'diyas', 'dizen', 'djinn', 'djins', 'doabs', 'doats', 'dobby', 'dobes', 'dobie', 'dobla', 'dobra', 'dobro', 'docht', 'docks', 'docos', 'docus', 'doddy',
+          'dodge', 'dodgy', 'dodos', 'doeks', 'doers', 'doest', 'doeth', 'doffs', 'dogan', 'doges', 'dogey', 'doggo', 'doggy', 'dogie', 'dohyo', 'doilt', 'doily',
+          'doits', 'dojos', 'dolce', 'dolci', 'doled', 'doles', 'dolia', 'dolls', 'dolly', 'dolma', 'dolor', 'dolos', 'dolts', 'domal', 'domed', 'domes', 'domic',
+          'donah', 'donas', 'donee', 'doner', 'donga', 'dongs', 'donko', 'donna', 'donne', 'donny', 'donor', 'donsy', 'doobs', 'dooce', 'doody', 'doola', 'doole',
+          'dools', 'dooly', 'dooms', 'doomy', 'doona', 'doorn', 'doors', 'doozy', 'dopas', 'doped', 'doper', 'dopes', 'dopey', 'dorad', 'dorba', 'dorbs', 'doree',
+          'dores', 'doric', 'doris', 'dorks', 'dorky', 'dorms', 'dormy', 'dorps', 'dorrs', 'dorsa', 'dorse', 'dorts', 'dorty', 'dosai', 'dosas', 'dosed', 'doseh',
+          'doser', 'doses', 'dosha', 'dotal', 'doted', 'doter', 'dotes', 'dotty', 'douar', 'douce', 'doucs', 'douks', 'doula', 'douma', 'doums', 'doups', 'doura',
+          'douse', 'douts', 'doved', 'doven', 'dover', 'doves', 'dovie', 'dowar', 'dowds', 'dowdy', 'dowed', 'dowel', 'dower', 'dowie', 'dowle', 'dowls', 'dowly',
+          'downa', 'downs', 'downy', 'dowps', 'dowry', 'dowse', 'dowts', 'doxed', 'doxes', 'doxie', 'doyen', 'doyly', 'dozed', 'dozer', 'dozes', 'drabs', 'drack',
+          'draco', 'draff', 'drags', 'drail', 'drain', 'drake', 'drams', 'drant', 'drape', 'draps', 'drats', 'drave', 'draws', 'drays', 'dread', 'drees', 'dregs',
+          'dreks', 'drent', 'drere', 'drest', 'drets', 'dribs', 'dries', 'drift', 'drily', 'drips', 'dript', 'droid', 'droil', 'droit', 'droke', 'drole', 'droll',
+          'drome', 'drone', 'drony', 'droob', 'droog', 'drook', 'drool', 'droop', 'drops', 'dropt', 'dross', 'drouk', 'drows', 'drubs', 'drugs', 'druid', 'drums',
+          'drung', 'drunks', 'drupe', 'druse', 'drusy', 'druxy', 'dryad', 'dryas', 'dsobo', 'dsomo', 'duads', 'duals', 'duans', 'duars', 'dubbo', 'ducal', 'ducat',
+          'duces', 'duchy', 'ducks', 'ducky', 'ducts', 'duddy', 'duded', 'dudes', 'duels', 'duets', 'duett', 'duffs', 'dufus', 'duing', 'duits', 'dukas', 'duked',
+          'dukes', 'dukka', 'dulce', 'dules', 'dulia', 'dulls', 'dully', 'dulse', 'dumas', 'dumbo', 'dumbs', 'dumka', 'dumky', 'dummy', 'dumps', 'dumpy', 'dunam',
+          'dunce', 'dunch', 'dunes', 'dungs', 'dungy', 'dunks', 'dunno', 'dunny', 'dunsh', 'dunts', 'duomi', 'duomo', 'duped', 'duper', 'dupes', 'duple', 'duply',
+          'duppy', 'dural', 'duras', 'dured', 'dures', 'durgy', 'durns', 'duroc', 'duros', 'duroy', 'durra', 'durrs', 'durry', 'durst', 'durum', 'durzi', 'dusks',
+          'dusky', 'dusts', 'dusty', 'dutch', 'duvet', 'duxes', 'dwaal', 'dwale', 'dwalm', 'dwams', 'dwang', 'dwarf', 'dwaum', 'dweeb', 'dwell', 'dwelt', 'dwile',
+          'dwine', 'dyads', 'dyers', 'dyked', 'dykes', 'dykey', 'dykon', 'dynel', 'dynes', 'dzhos', 'eagre', 'ealed', 'eales', 'eaned', 'eards', 'eared', 'earls',
+          'earns', 'earnt', 'earst', 'eased', 'easer', 'eases', 'easle', 'easts', 'eathe', 'eaved', 'eaves', 'ebbed', 'ebbet', 'ebons', 'ebook', 'ecads', 'eched',
+          'eches', 'echos', 'ecrus', 'edema', 'edged', 'edger', 'edges', 'edile', 'edits', 'educe', 'educt', 'eejit', 'eensy', 'eerie', 'eeven', 'eevns', 'effed',
+          'egads', 'egers', 'egest', 'eggar', 'egged', 'egger', 'egmas', 'ehing', 'eiked', 'eikes', 'eikon', 'eilds', 'eisel', 'ejido', 'ekkas', 'elain', 'eland',
+          'elans', 'elate', 'elbow', 'elchi', 'elder', 'eldin', 'elegy', 'elemi', 'elfed', 'elfin', 'eliad', 'elide', 'elint', 'elmen', 'eloge', 'elogy', 'eloin',
+          'elope', 'elops', 'elpee', 'elsin', 'elute', 'elvan', 'elven', 'elver', 'elves', 'emacs', 'email', 'embar', 'embay', 'embed', 'ember', 'embog', 'embow',
+          'embox', 'embus', 'emeer', 'emend', 'emerg', 'emery', 'emeus', 'emics', 'emirs', 'emits', 'emmas', 'emmer', 'emmet', 'emmew', 'emmys', 'emoji', 'emong',
+          'emote', 'emove', 'empts', 'emule', 'emure', 'emyde', 'emyds', 'enact', 'enarm', 'enate', 'ended', 'ender', 'endew', 'endow', 'endue', 'enema', 'enews',
+          'enfix', 'eniac', 'enlit', 'enmew', 'ennog', 'enoki', 'enols', 'enorm', 'enows', 'enrol', 'ensew', 'ensky', 'ensue', 'entia', 'enure', 'enurn', 'envoi',
+          'envoy', 'enyaw', 'enzym', 'eorls', 'eosin', 'epact', 'epees', 'ephah', 'ephas', 'ephod', 'ephor', 'epics', 'epoch', 'epode', 'epopt', 'epoxy', 'epris',
+          'eques', 'equid', 'erbia', 'erect', 'erevs', 'ergon', 'ergos', 'ergot', 'erhus', 'erica', 'erick', 'erics', 'ering', 'erned', 'ernes', 'erose', 'erred',
+          'erses', 'eruct', 'erugo', 'eruvs', 'erven', 'ervil', 'escar', 'escot', 'esile', 'eskar', 'esker', 'esnes', 'esses', 'estoc', 'estop', 'estro', 'etage',
+          'etape', 'etats', 'etens', 'ethal', 'ether', 'ethic', 'ethne', 'ethos', 'ethyl', 'etics', 'etnas', 'ettin', 'ettle', 'etude', 'etuis', 'etwee', 'etyma',
+          'eughs', 'euked', 'eupad', 'euros', 'eusol', 'evade', 'evens', 'evert', 'evets', 'evhoe', 'evict', 'evils', 'evite', 'evohe', 'evoke', 'ewers', 'ewest',
+          'ewhow', 'ewked', 'exams', 'exeat', 'execs', 'exeem', 'exeme', 'exert', 'exfil', 'exies', 'exine', 'exing', 'exits', 'exode', 'exome', 'exons', 'expat',
+          'expos', 'exta', 'extol', 'extro', 'exude', 'exuls', 'exult', 'exurb', 'eyass', 'eyers', 'eyots', 'eyras', 'eyres', 'eyrie', 'eyrir', 'ezine', 'fabby',
+          'faced', 'facer', 'faces', 'facia', 'facta', 'facts', 'faddy', 'faded', 'fader', 'fades', 'fadge', 'fados', 'faena', 'faery', 'faffs', 'faffy', 'faggy',
+          'fagin', 'fagot', 'faiks', 'fails', 'faine', 'fains', 'fairs', 'faked', 'faker', 'fakes', 'fakey', 'fakie', 'fakir', 'falaj', 'fallx', 'famed', 'fames',
+          'fanal', 'fands', 'fanes', 'fanga', 'fango', 'fangs', 'fanks', 'fanon', 'fanos', 'fanum', 'faqir', 'farad', 'farci', 'farcy', 'fards', 'fared', 'farer',
+          'fares', 'farle', 'farls', 'farms', 'faros', 'farro', 'farse', 'farts', 'fasci', 'fasti', 'fasts', 'fated', 'fates', 'fatly', 'fatso', 'fatwa', 'faugh',
+          'fauld', 'fauns', 'faurd', 'fauts', 'fauve', 'favas', 'favel', 'faver', 'faves', 'favus', 'fawns', 'fawny', 'faxed', 'faxes', 'fayed', 'fayer', 'fayre',
+          'fazed', 'fazes', 'feals', 'feare', 'fears', 'feart', 'fease', 'feast', 'feats', 'feaze', 'fecal', 'feces', 'fecht', 'fecit', 'fecks', 'fedex', 'feebs',
+          'feeds', 'feels', 'feens', 'feers', 'feese', 'feeze', 'fehme', 'feint', 'feist', 'felch', 'felid', 'fells', 'felly', 'felon', 'felts', 'felty', 'femal',
+          'femes', 'femmy', 'fends', 'fendy', 'fenis', 'fenks', 'fenny', 'fents', 'feods', 'feoff', 'ferer', 'feres', 'feria', 'ferly', 'fermi', 'ferms', 'ferns',
+          'ferny', 'ferry', 'fesse', 'festa', 'fests', 'festy', 'fetas', 'feted', 'fetes', 'fetor', 'fetta', 'fetts', 'fetwa', 'feuar', 'feuds', 'feued', 'fever',
+          'fewer', 'feyed', 'feyer', 'feyly', 'fezes', 'fezzy', 'fiars', 'fiats', 'fibro', 'fices', 'fiche', 'fichu', 'ficin', 'ficos', 'fides', 'fidge', 'fidos',
+          'fiefs', 'fient', 'fiere', 'fiers', 'fiest', 'fifed', 'fifer', 'fifes', 'fifis', 'figgy', 'figos', 'fiked', 'fikes', 'filar', 'filch', 'filed', 'filer',
+          'files', 'filii', 'filks', 'fille', 'fillo', 'fills', 'filmi', 'films', 'filos', 'filum', 'finds', 'fined', 'finer', 'fines', 'finis', 'finks', 'finny',
+          'finos', 'fiord', 'fiqhs', 'fique', 'fired', 'firer', 'fires', 'firie', 'firks', 'firms', 'firns', 'firry', 'firth', 'fiscs', 'fists', 'fisty', 'fitch',
+          'fitly', 'fitna', 'fitte', 'fitts', 'fiver', 'fives', 'fixed', 'fixer', 'fixes', 'fixit', 'fizzy', 'fjeld', 'fjord', 'flabs', 'flack', 'flaff', 'flags',
+          'flail', 'flair', 'flake', 'flaky', 'flame', 'flamm', 'flams', 'flamy', 'flane', 'flank', 'flans', 'flaps', 'flare', 'flary', 'flats', 'flava', 'flawn',
+          'flaws', 'flawy', 'flaxy', 'flays', 'fleam', 'fleas', 'fleck', 'fleek', 'fleer', 'flees', 'flegs', 'fleme', 'flesh', 'fleur', 'flews', 'flexi', 'flexo',
+          'fleys', 'flick', 'flics', 'flied', 'flier', 'flies', 'flimp', 'flims', 'fling', 'flint', 'flips', 'flirs', 'flirt', 'flisk', 'flite', 'flits', 'fload',
+          'float', 'flock', 'flocs', 'floes', 'flogs', 'flong', 'flood', 'flosh', 'flota', 'flote', 'flour', 'flout', 'flown', 'flows', 'flubs', 'flued', 'flues',
+          'fluey', 'fluff', 'flump', 'flung', 'flunk', 'fluor', 'flurr', 'flush', 'flute', 'fluty', 'fluyt', 'flyby', 'flype', 'flyte', 'foals', 'foams', 'foamy',
+          'focal', 'focus', 'foehn', 'fogey', 'foggy', 'fogie', 'fogle', 'fohns', 'foids', 'foils', 'foins', 'folds', 'foley', 'folia', 'folic', 'folie', 'folks',
+          'folky', 'fomes', 'fonda', 'fonds', 'fondu', 'fones', 'fonly', 'fonts', 'foods', 'foody', 'fools', 'foots', 'footy', 'foram', 'forbs', 'forby', 'fordo',
+          'fords', 'forel', 'fores', 'forex', 'forge', 'forgo', 'forks', 'forky', 'forme', 'forms', 'forts', 'forty', 'fossa', 'fosse', 'fouat', 'fouds', 'fouer',
+          'fouet', 'foule', 'fouls', 'fount', 'fours', 'fouth', 'fovea', 'fowls', 'fowth', 'foxed', 'foxes', 'foxie', 'foyer', 'foyle', 'foyne', 'frabs', 'frack',
+          'fract', 'frags', 'fraim', 'franc', 'frape', 'fraps', 'frass', 'frate', 'frati', 'frats', 'fraus', 'frays', 'freak', 'freed', 'freer', 'frees', 'freet',
+          'freit', 'fremd', 'frena', 'freon', 'frere', 'frets', 'friar', 'fribs', 'fried', 'frier', 'fries', 'frigs', 'frise', 'frisk', 'frist', 'frith', 'frits',
+          'fritt', 'fritz', 'frize', 'frizz', 'frock', 'froes', 'frogs', 'frond', 'frons', 'frore', 'frorn', 'frory', 'frosh', 'frost', 'froth', 'frown', 'frows',
+          'frowy', 'frugs', 'frump', 'frush', 'frust', 'fryer', 'fubar', 'fubby', 'fubsy', 'fucks', 'fucus', 'fuddy', 'fudgy', 'fuels', 'fuero', 'fuffs', 'fuffy',
+          'fugal', 'fuggy', 'fugie', 'fugio', 'fugle', 'fugly', 'fugue', 'fugus', 'fujis', 'fulls', 'fumed', 'fumer', 'fumes', 'fumet', 'fundi', 'funds', 'fundy',
+          'fungo', 'fungs', 'funks', 'fural', 'furan', 'furca', 'furls', 'furol', 'furrs', 'furth', 'furze', 'furzy', 'fused', 'fusee', 'fusel', 'fuses', 'fusil',
+          'fusks', 'fusts', 'fusty', 'fused', 'fusee', 'fusel', 'fuses', 'fusil', 'fusks', 'fusts', 'fusty', 'futon', 'fuzed', 'fuzee', 'fuzes', 'fuzil', 'fyces',
+          'fyked', 'fykes', 'fyles', 'fyrds', 'fytte', 'gabba', 'gabby', 'gable', 'gaddi', 'gades', 'gadge', 'gadid', 'gadis', 'gadje', 'gadjo', 'gadso', 'gaffs',
+          'gaged', 'gager', 'gages', 'gaids', 'gains', 'gairs', 'gaita', 'gaits', 'gaitt', 'gajos', 'galah', 'galas', 'galax', 'galea', 'galed', 'gales', 'galls',
+          'gally', 'galop', 'galut', 'galvo', 'gamas', 'gamay', 'gamba', 'gambe', 'gambo', 'gambs', 'gamed', 'gamer', 'games', 'gamey', 'gamic', 'gamin', 'gamme',
+          'gammy', 'gamps', 'ganch', 'gandy', 'ganef', 'ganev', 'gangs', 'ganja', 'ganof', 'gants', 'gaols', 'gaped', 'gaper', 'gapes', 'gapos', 'gappy', 'garbe',
+          'garbo', 'garbs', 'garda', 'gares', 'garis', 'garms', 'garni', 'garre', 'garth', 'garum', 'gases', 'gasps', 'gaspy', 'gasts', 'gatch', 'gated', 'gater',
+          'gates', 'gaths', 'gator', 'gauch', 'gaucy', 'gauds', 'gaudy', 'gauge', 'gauje', 'gault', 'gaums', 'gaumy', 'gaunt', 'gaups', 'gaurs', 'gauss', 'gauze',
+          'gauzy', 'gavaş', 'gavot', 'gawcy', 'gawds', 'gawks', 'gawky', 'gawps', 'gawsy', 'gayal', 'gazal', 'gazar', 'gazed', 'gazer', 'gazes', 'gazon', 'gazoo',
+          'geals', 'geans', 'geare', 'gears', 'geats', 'gebur', 'gecko', 'gecks', 'geeks', 'geeky', 'geeps', 'geest', 'geist', 'geits', 'gelds', 'gelee', 'gelid',
+          'gelly', 'gelts', 'gemel', 'gemma', 'gemmy', 'gemot', 'genal', 'genas', 'genes', 'genet', 'genic', 'genie', 'genii', 'genip', 'genny', 'genoa', 'genom',
+          'genre', 'genro', 'gents', 'genty', 'genua', 'genus', 'geode', 'geoid', 'gerah', 'gerbe', 'geres', 'gerle', 'germs', 'germy', 'gerne', 'gesse', 'gesso',
+          'geste', 'gests', 'getas', 'getup', 'geums', 'geyan', 'geyer', 'ghast', 'ghats', 'ghaut', 'ghazi', 'ghees', 'ghest', 'ghost', 'ghoul', 'ghyll', 'gibed',
+          'gibel', 'giber', 'gibes', 'gibli', 'gibus', 'giddy', 'gifts', 'gigas', 'gighe', 'gigot', 'gigue', 'gilas', 'gilds', 'gilet', 'gills', 'gilly', 'gilpy',
+          'gilts', 'gimel', 'gimme', 'gimps', 'gimpy', 'ginch', 'ginge', 'gings', 'ginks', 'ginny', 'ginzo', 'gipon', 'gippo', 'gippy', 'gipsy', 'girds', 'girls',
+          'girly', 'girns', 'giron', 'giros', 'girrs', 'girsh', 'girts', 'gismo', 'gisms', 'gists', 'gitch', 'gites', 'giust', 'gived', 'gives', 'gizmo', 'glace',
+          'glade', 'glads', 'glady', 'glaik', 'glair', 'glams', 'gland', 'glans', 'glare', 'glary', 'glazy', 'gleam', 'glean', 'gleba', 'glebe', 'gleby', 'glede',
+          'gleds', 'gleed', 'gleek', 'glees', 'gleet', 'gleis', 'glens', 'glent', 'gleys', 'glial', 'glias', 'glibs', 'glide', 'gliff', 'glift', 'glike', 'glime',
+          'glims', 'glint', 'glisk', 'glits', 'gloam', 'gloat', 'globs', 'glogg', 'gloms', 'gloop', 'glops', 'glory', 'gloss', 'glost', 'glout', 'glows', 'gloze',
+          'glued', 'gluer', 'glues', 'gluey', 'glugs', 'glume', 'glums', 'gluon', 'glute', 'gluts', 'gnarl', 'gnarr', 'gnars', 'gnats', 'gnawn', 'gnaws', 'gnows',
+          'goads', 'goafs', 'goals', 'goary', 'goats', 'goaty', 'goban', 'gobar', 'gobbi', 'gobbo', 'gobby', 'gobis', 'gobos', 'godet', 'godly', 'godso', 'goels',
+          'goers', 'goest', 'goeth', 'goety', 'gofer', 'goffs', 'gogga', 'gogos', 'goier', 'gojis', 'golds', 'goldy', 'goles', 'golfs', 'golpe', 'golps', 'gombo',
+          'gomer', 'gompa', 'gonad', 'gonch', 'gonef', 'gongs', 'gonia', 'gonif', 'gonks', 'gonna', 'gonof', 'gonys', 'gonzo', 'gooby', 'goods', 'goody', 'gooey',
+          'goofs', 'goofy', 'googs', 'gooks', 'gooky', 'goold', 'gools', 'gooly', 'goons', 'goony', 'goops', 'goopy', 'goors', 'goory', 'goose', 'goosy', 'gopak',
+          'gopik', 'goral', 'goras', 'gored', 'gores', 'gorge', 'gorms', 'gormy', 'gorps', 'gorse', 'gorsy', 'gosht', 'gosse', 'gotch', 'goths', 'gothy', 'gotta',
+          'gouch', 'gouge', 'gouks', 'goura', 'gourd', 'gouts', 'gouty', 'gowan', 'gowds', 'gowfs', 'gowks', 'gowls', 'gowns', 'goxes', 'goyim', 'goyle', 'graal',
+          'grabs', 'grads', 'graff', 'graft', 'grail', 'grain', 'graip', 'grama', 'grame', 'gramp', 'grams', 'grana', 'grans', 'grapy', 'grasp', 'grate', 'grave',
+          'gravs', 'gravy', 'grays', 'graze', 'grebe', 'grebo', 'grece', 'greed', 'greek', 'grees', 'grege', 'grego', 'grein', 'grens', 'grese', 'greve', 'grews',
+          'greys', 'grice', 'gride', 'grids', 'grief', 'griff', 'grift', 'grigs', 'grike', 'grill', 'grime', 'grimy', 'grind', 'grins', 'griot', 'gripe', 'grips',
+          'gript', 'gripy', 'grise', 'grist', 'grisy', 'grith', 'grits', 'groan', 'groat', 'grody', 'grogs', 'groin', 'groks', 'groma', 'grone', 'groom', 'grope',
+          'grosz', 'grots', 'grouf', 'grovy', 'grows', 'grrrl', 'grubs', 'grued', 'gruel', 'grues', 'grufe', 'gruff', 'grume', 'grump', 'grund', 'grunt', 'gryce',
+          'gryde', 'gryke', 'grype', 'grypt', 'guaco', 'guana', 'guano', 'guans', 'guars', 'gucks', 'gucky', 'gudes', 'guffs', 'gugas', 'guids', 'guile', 'guilt',
+          'guimp', 'guiro', 'guise', 'gular', 'gulas', 'gules', 'gulet', 'gulfs', 'gulfy', 'gulls', 'gully', 'gulph', 'gulps', 'gulpy', 'gumbo', 'gumma', 'gummi',
+          'gumps', 'gundy', 'gunge', 'gungy', 'gunks', 'gunky', 'gunny', 'guppy', 'guqin', 'gurdy', 'gurge', 'gurls', 'gurly', 'gurns', 'gurry', 'gursh', 'gurus',
+          'gushy', 'gusla', 'gusle', 'gusli', 'gussy', 'gusts', 'gusty', 'gutsy', 'gutta', 'gutty', 'guyed', 'guyle', 'guyot', 'guyse', 'gwine', 'gyals', 'gyans',
+          'gybed', 'gybes', 'gyeld', 'gymps', 'gynae', 'gynie', 'gynny', 'gynos', 'gyoza', 'gypos', 'gyppo', 'gyppy', 'gypsy', 'gyral', 'gyred', 'gyres', 'gyron',
+          'gyros', 'gyrus', 'gytes', 'gyved', 'gyves', 'haafs', 'haars', 'hable', 'habus', 'hacek', 'hacks', 'hadal', 'haded', 'hades', 'hadji', 'hadst', 'haems',
+          'haets', 'haffs', 'hafiz', 'hafts', 'haggs', 'hahas', 'haick', 'haika', 'haiks', 'haiku', 'hails', 'haily', 'hains', 'haint', 'hairs', 'hairy', 'haith',
+          'hajes', 'hajis', 'hajji', 'hakam', 'hakas', 'hakea', 'hakes', 'hakim', 'hakus', 'halal', 'haled', 'haler', 'hales', 'halfa', 'halfs', 'halid', 'hallo',
+          'halls', 'halma', 'halms', 'halon', 'halos', 'halse', 'halts', 'halva', 'halve', 'halwa', 'hamal', 'hamba', 'hamed', 'hames', 'hammy', 'hamza', 'hanap',
+          'hance', 'hanch', 'hands', 'handy', 'hangi', 'hangs', 'hanks', 'hanky', 'hansa', 'hanse', 'hants', 'haole', 'haoma', 'hapax', 'haply', 'happi', 'hapus',
+          'haram', 'hards', 'hardy', 'hared', 'hares', 'harls', 'harms', 'harns', 'haros', 'harps', 'harpy', 'harrow', 'harts', 'hashy', 'hasks', 'hasps', 'hasta',
+          'haste', 'hasty', 'hatch', 'hated', 'hater', 'hates', 'hatha', 'hauds', 'haufs', 'haugh', 'hauld', 'haulm', 'hauls', 'hault', 'hauns', 'haunt', 'hause',
+          'haute', 'havel', 'haver', 'haves', 'hawed', 'hawks', 'hawms', 'hawse', 'hayed', 'hayer', 'hayey', 'hayle', 'hazan', 'hazed', 'hazel', 'hazer', 'hazes',
+          'heads', 'heady', 'heald', 'heals', 'heame', 'heaps', 'heapy', 'heare', 'hears', 'heast', 'heath', 'heats', 'heave', 'hebes', 'hecht', 'hecks', 'heder',
+          'hedge', 'hedgy', 'heeds', 'heedy', 'heels', 'heeze', 'hefte', 'hefts', 'hefty', 'heids', 'heigh', 'heils', 'heirs', 'heist', 'hejab', 'hejra', 'heled',
+          'heles', 'helio', 'hells', 'helms', 'helos', 'helot', 'helps', 'helve', 'hemal', 'hemes', 'hemic', 'hemin', 'hemps', 'hempy', 'hench', 'hends', 'henge',
+          'henna', 'henny', 'henry', 'hents', 'hepar', 'herbs', 'herby', 'herds', 'heres', 'herls', 'herma', 'herms', 'herns', 'heron', 'heros', 'herry', 'herse',
+          'hertz', 'herye', 'hesps', 'hests', 'hetes', 'heths', 'heuch', 'heugh', 'hevea', 'hewed', 'hewer', 'hewgh', 'hexad', 'hexed', 'hexer', 'hexes', 'hexyl',
+          'heyed', 'hiant', 'hicks', 'hided', 'hider', 'hides', 'hiems', 'highs', 'hight', 'hijab', 'hijra', 'hiked', 'hiker', 'hikes', 'hikoi', 'hilar', 'hilch',
+          'hillo', 'hills', 'hilly', 'hilts', 'hilum', 'hilus', 'himbo', 'hinau', 'hinds', 'hings', 'hinky', 'hinny', 'hints', 'hiois', 'hiply', 'hippo', 'hippy',
+          'hired', 'hiree', 'hirer', 'hires', 'hissy', 'hists', 'hithe', 'hived', 'hiver', 'hives', 'hizen', 'hoach', 'hoaed', 'hoagy', 'hoard', 'hoars', 'hoary',
+          'hoast', 'hobby', 'hobos', 'hocks', 'hocus', 'hodad', 'hodja', 'hoers', 'hogan', 'hogen', 'hoggs', 'hoghs', 'hohed', 'hoick', 'hoied', 'hoiks', 'hoing',
+          'hoise', 'hoist', 'hoked', 'hokes', 'hokey', 'hokis', 'hokku', 'hokum', 'holds', 'holed', 'holes', 'holey', 'holks', 'holla', 'hollo', 'holly', 'holme',
+          'holms', 'holon', 'holos', 'holts', 'homas', 'homed', 'homer', 'homes', 'homey', 'homie', 'homme', 'homos', 'honan', 'honda', 'honds', 'honed', 'honer',
+          'hones', 'honey', 'hongi', 'hongs', 'honks', 'honky', 'hooch', 'hoods', 'hoody', 'hooey', 'hoofs', 'hooka', 'hooks', 'hooky', 'hooly', 'hoons', 'hoops',
+          'hoord', 'hoors', 'hoosh', 'hoots', 'hooty', 'hoove', 'hopak', 'hoped', 'hoper', 'hopes', 'hoppy', 'horah', 'horal', 'horas', 'horde', 'horks', 'horns',
+          'horny', 'horsy', 'hosed', 'hosel', 'hosen', 'hoser', 'hoses', 'hosey', 'hosta', 'hosts', 'hotch', 'hoten', 'hotty', 'houff', 'houfs', 'hough', 'hound',
+          'houri', 'hours', 'houts', 'hovea', 'hoved', 'hoven', 'hoves', 'howbe', 'howes', 'howff', 'howfs', 'howks', 'howls', 'howre', 'howso', 'hoxed', 'hoxes',
+          'hoyas', 'hoyed', 'hoyle', 'hubby', 'hucks', 'hudna', 'hudud', 'huers', 'huffs', 'huffy', 'huger', 'huggy', 'huhus', 'huias', 'hulas', 'hules', 'hulks',
+          'hulky', 'hullo', 'hulls', 'hully', 'humas', 'humfs', 'humic', 'humps', 'humpy', 'hunch', 'hunks', 'hunky', 'hunts', 'hurds', 'hurls', 'hurly', 'hurra',
+          'hurry', 'hurst', 'hurts', 'hushy', 'husks', 'husky', 'husos', 'hussy', 'hutch', 'huzza', 'huzzy', 'hwyls', 'hydra', 'hydro', 'hyena', 'hyens', 'hygge',
+          'hying', 'hykes', 'hylas', 'hylek', 'hyles', 'hyli', 'hymen', 'hymns', 'hynde', 'hyoid', 'hyped', 'hypes', 'hypha', 'hyphy', 'hypos', 'hyrax', 'hyson',
+          'iambi', 'iambs', 'ibrik', 'icers', 'iched', 'iches', 'ichor', 'icier', 'icily', 'icing', 'icker', 'ickle', 'icons', 'ictal', 'ictic', 'ictus', 'idant',
+          'ideas', 'idees', 'ident', 'idiom', 'idiot', 'idled', 'idler', 'idles', 'idola', 'idols', 'idyll', 'idyls', 'iftar', 'igapo', 'igged', 'igloo', 'iglus',
+          'ihram', 'ikans', 'ikats', 'ikons', 'ileac', 'ileal', 'ileum', 'ileus', 'iliac', 'iliad', 'ilial', 'ilium', 'iller', 'illth', 'imago', 'imams', 'imari',
+          'imaum', 'imbar', 'imbed', 'imbue', 'imide', 'imido', 'imids', 'imine', 'imino', 'immew', 'immit', 'immix', 'imped', 'impis', 'imply', 'impot', 'impro',
+          'imshi', 'imshy', 'inane', 'inapt', 'inarm', 'inbox', 'incel', 'incle', 'incog', 'incus', 'incut', 'indew', 'india', 'indie', 'indol', 'indow', 'indri',
+          'indue', 'inept', 'inerm', 'inert', 'infer', 'infix', 'infos', 'infra', 'ingan', 'ingle', 'ingot', 'inion', 'inked', 'inker', 'inkle', 'inlay', 'inlet',
+          'inned', 'inorb', 'inrun', 'insee', 'inset', 'inspo', 'intel', 'inter', 'intil', 'intis', 'intra', 'intro', 'inula', 'inure', 'inurn', 'inust', 'invar',
+          'inwit', 'iodic', 'iodid', 'iodin', 'ionic', 'iotas', 'ippon', 'irade', 'irate', 'irids', 'iring', 'irked', 'iroko', 'irone', 'irons', 'isbas', 'ishes',
+          'isled', 'isles', 'islet', 'isnae', 'issei', 'istle', 'items', 'ither', 'ivied', 'ivies', 'ixias', 'ixnay', 'ixora', 'ixtle', 'izard', 'izars', 'izzat',
+          'jaaps', 'jabot', 'jacal', 'jacks', 'jacky', 'jaded', 'jades', 'jafas', 'jaffa', 'jagas', 'jager', 'jaggs', 'jaggy', 'jagir', 'jagra', 'jails', 'jaker',
+          'jakes', 'jakey', 'jalap', 'jalop', 'jambe', 'jambo', 'jambs', 'jambu', 'james', 'jammy', 'jamon', 'janes', 'janns', 'janny', 'janty', 'japan', 'japed',
+          'japer', 'japes', 'jarks', 'jarls', 'jarps', 'jarta', 'jarul', 'jasey', 'jaspe', 'jasps', 'jatos', 'jauks', 'jaunt', 'jaups', 'javas', 'javel', 'jawan',
+          'jawed', 'jawns', 'jaxie', 'jeans', 'jeats', 'jebel', 'jedis', 'jeels', 'jeely', 'jeeps', 'jeers', 'jeeze', 'jefes', 'jeffs', 'jehad', 'jehus', 'jelab',
+          'jello', 'jells', 'jembe', 'jemmy', 'jenny', 'jeons', 'jerid', 'jerks', 'jerky', 'jerry', 'jesse', 'jests', 'jesus', 'jetes', 'jeton', 'jeune', 'jewed',
+          'jewie', 'jhala', 'jheel', 'jhoot', 'jiber', 'jibes', 'jiffs', 'jiffy', 'jiggy', 'jigot', 'jihad', 'jills', 'jilts', 'jimmy', 'jimpy', 'jingo', 'jinks',
+          'jinne', 'jinni', 'jinns', 'jirds', 'jirga', 'jirre', 'jisms', 'jived', 'jiver', 'jives', 'jivey', 'jnana', 'jobed', 'jobes', 'jocko', 'jocks', 'jocky',
+          'jocos', 'jodel', 'joeys', 'johns', 'joins', 'joked', 'joker', 'jokes', 'jokey', 'jokol', 'joled', 'joles', 'jolls', 'jolly', 'jolts', 'jolty', 'jomon',
+          'jomos', 'jongs', 'jonty', 'jooks', 'joram', 'jorum', 'jotas', 'jotty', 'jotun', 'joual', 'jougs', 'jouks', 'joule', 'jours', 'joust', 'jowar', 'jowed',
+          'jowls', 'jowly', 'joyed', 'jubas', 'jubes', 'jucos', 'judas', 'judgy', 'judos', 'jugal', 'jugum', 'jujus', 'juked', 'jukes', 'jukus', 'julep', 'jumar',
+          'jumbo', 'jumps', 'jumpy', 'junco', 'junks', 'junky', 'junta', 'junto', 'jupes', 'jupon', 'jural', 'jurat', 'jurel', 'jures', 'justs', 'jutes', 'jutty',
+          'juves', 'juvie', 'kaama', 'kabab', 'kabar', 'kabob', 'kacha', 'kacks', 'kadai', 'kades', 'kadis', 'kafir', 'kagos', 'kagus', 'kahal', 'kaiak', 'kaids',
+          'kaies', 'kaifs', 'kaika', 'kaiks', 'kails', 'kaims', 'kaing', 'kains', 'kakas', 'kakis', 'kalam', 'kales', 'kalif', 'kalis', 'kalpa', 'kamas', 'kames',
+          'kamik', 'kāmis', 'kamme', 'kanae', 'kanas', 'kandy', 'kaneh', 'kanes', 'kanga', 'kangs', 'kanji', 'kants', 'kanzu', 'kaons', 'kapas', 'kaphs', 'kapok',
+          'kapow', 'kapus', 'kaput', 'karas', 'karat', 'karks', 'karma', 'karns', 'karoo', 'karos', 'karri', 'karst', 'karsy', 'karts', 'karzy', 'kasha', 'kasme',
+          'katal', 'katas', 'katis', 'katti', 'kaugh', 'kauri', 'kauru', 'kaury', 'kaval', 'kavas', 'kawas', 'kawau', 'kawed', 'kayak', 'kayle', 'kayos', 'kazis',
+          'kazoo', 'kbars', 'kebar', 'kebob', 'kecks', 'kedge', 'kedgy', 'keech', 'keefs', 'keeks', 'keels', 'keema', 'keeno', 'keens', 'keeps', 'keets', 'keeve',
+          'kefir', 'kehua', 'keirs', 'kelep', 'kelim', 'kells', 'kelly', 'kelps', 'kelpy', 'kelts', 'kelty', 'kembo', 'kembs', 'kemps', 'kempt', 'kempy', 'kenaf',
+          'kench', 'kendo', 'kenos', 'kente', 'kents', 'kepis', 'kerbs', 'kerel', 'kerfs', 'kerky', 'kerma', 'kerne', 'kerns', 'keros', 'kerry', 'kerve', 'kesar',
+          'kests', 'ketas', 'ketch', 'ketes', 'ketol', 'kevel', 'kevil', 'kexes', 'keyed', 'keyer', 'khadi', 'khafs', 'khaki', 'khans', 'khaph', 'khats', 'khaya',
+          'khazi', 'kheda', 'kheth', 'khets', 'khoja', 'khors', 'khoum', 'khuds', 'kiaat', 'kiack', 'kiang', 'kibbe', 'kibbi', 'kibei', 'kibes', 'kibla', 'kicks',
+          'kicky', 'kiddo', 'kiddy', 'kiefs', 'kiers', 'kieve', 'kievs', 'kight', 'kikoi', 'kiley', 'kilim', 'kills', 'kilns', 'kilos', 'kilps', 'kilts', 'kilty',
+          'kimbo', 'kinas', 'kinda', 'kinds', 'kindy', 'kines', 'kings', 'kinin', 'kinks', 'kinky', 'kinos', 'kiore', 'kipes', 'kippa', 'kipps', 'kirby', 'kirks',
+          'kirns', 'kirri', 'kisan', 'kissy', 'kists', 'kited', 'kiter', 'kites', 'kithe', 'kiths', 'kitty', 'kitul', 'kivas', 'kiwis', 'klang', 'klaps', 'klett',
+          'klick', 'klieg', 'kliks', 'klong', 'kloof', 'kluge', 'klutz', 'knack', 'knags', 'knaps', 'knarl', 'knars', 'knaur', 'knave', 'knawe', 'knead', 'kneed',
+          'kneel', 'knees', 'knell', 'knelt', 'knish', 'knits', 'knive', 'knobs', 'knock', 'knoll', 'knops', 'knosp', 'knots', 'knout', 'knowe', 'knows', 'knubs',
+          'knurl', 'knurr', 'knurs', 'knuts', 'koala', 'koans', 'koaps', 'koban', 'kobos', 'koels', 'koffs', 'kofta', 'kogal', 'kohas', 'kohen', 'kohls', 'koine',
+          'kojis', 'kokam', 'kokas', 'koker', 'kokra', 'kokum', 'kolas', 'kolos', 'kombu', 'konbu', 'kondo', 'konks', 'kooks', 'kooky', 'koori', 'kopek', 'kophs',
+          'kopje', 'koppa', 'korai', 'koras', 'korat', 'kores', 'korma', 'koros', 'korun', 'korus', 'koses', 'kotch', 'kotos', 'kotow', 'koura', 'kraal', 'krabs',
+          'kraft', 'krais', 'krait', 'krang', 'krans', 'kraut', 'krays', 'kreep', 'kreng', 'krewe', 'krona', 'krone', 'kroon', 'krubi', 'krunk', 'ksars', 'kubie',
+          'kudos', 'kudus', 'kudzu', 'kufis', 'kugel', 'kuias', 'kukri', 'kukus', 'kulak', 'kulan', 'kulas', 'kulfi', 'kumis', 'kumys', 'kuris', 'kurre', 'kurta',
+          'kurus', 'kusso', 'kutas', 'kutch', 'kutis', 'kutus', 'kuzus', 'kvass', 'kvell', 'kwela', 'kyack', 'kyaks', 'kyang', 'kyars', 'kyats', 'kybos', 'kyles',
+          'kylie', 'kylin', 'kylix', 'kyloe', 'kynde', 'kynds', 'kypes', 'kyrie', 'kytes', 'kythe', 'laari', 'labda', 'labia', 'labis', 'labra', 'laced', 'lacer',
+          'laces', 'lacet', 'lacey', 'lacks', 'laddy', 'laded', 'laden', 'lader', 'lades', 'laers', 'laevo', 'lagan', 'lager', 'lahal', 'lahar', 'laich', 'laics',
+          'laids', 'laigh', 'laika', 'laiks', 'laird', 'lairs', 'lairy', 'laith', 'laity', 'laked', 'laker', 'lakes', 'lakhs', 'lakin', 'laksa', 'laldy', 'lalls',
+          'lamas', 'lambs', 'lamby', 'lamed', 'lamer', 'lames', 'lamia', 'lammy', 'lamps', 'lanai', 'lanas', 'lanch', 'lande', 'lands', 'lanes', 'lanks', 'lanky',
+          'lants', 'lapin', 'lapis', 'lapje', 'larch', 'lards', 'lardy', 'laree', 'lares', 'largo', 'laris', 'larks', 'larky', 'larns', 'larnt', 'larum', 'larva',
+          'lased', 'laser', 'lases', 'lassi', 'lasso', 'lassu', 'lassy', 'lasts', 'latah', 'lated', 'laten', 'latex', 'lathi', 'laths', 'lathy', 'latke', 'latus',
+          'lauan', 'lauch', 'lauds', 'laufs', 'laund', 'laura', 'laval', 'lavas', 'laved', 'laver', 'laves', 'lavra', 'lavvy', 'lawed', 'lawer', 'lawin', 'lawks',
+          'lawns', 'lawny', 'laxed', 'laxer', 'laxes', 'laxly', 'layed', 'layin', 'layup', 'lazar', 'lazed', 'lazes', 'lazos', 'lazzi', 'lazzo', 'leads', 'leady',
+          'leafs', 'leafy', 'leaks', 'leaky', 'leams', 'leans', 'leant', 'leany', 'leaps', 'leare', 'lears', 'leary', 'leats', 'leavy', 'leaze', 'leazy', 'leben',
+          'leccy', 'ledes', 'ledgy', 'ledum', 'leear', 'leeks', 'leers', 'leery', 'lees', 'leets', 'leeze', 'lefte', 'lefts', 'lefty', 'leggy', 'legit', 'lehrs',
+          'lehua', 'leirs', 'leish', 'leman', 'lemes', 'lemma', 'lemmy', 'lemons', 'lemur', 'lends', 'lenes', 'lengs', 'lenis', 'lenos', 'lense', 'lenti', 'lento',
+          'leone', 'leper', 'lepid', 'lepra', 'lepta', 'lered', 'leres', 'lerps', 'lesbo', 'leses', 'lests', 'letch', 'lethe', 'letup', 'leuch', 'leuco', 'leuds',
+          'leugh', 'levas', 'levee', 'leves', 'levin', 'levis', 'lewis', 'lexes', 'lexis', 'lezes', 'lezza', 'lezzy', 'liana', 'liane', 'liang', 'liard', 'liars',
+          'liart', 'libel', 'liber', 'libra', 'libri', 'lichi', 'licht', 'licit', 'licks', 'lidar', 'lidos', 'liefs', 'liens', 'liers', 'lieus', 'lieve', 'lifer',
+          'lifes', 'lifts', 'ligan', 'liger', 'ligge', 'ligne', 'liked', 'liken', 'liker', 'likes', 'likin', 'lilac', 'lills', 'lilos', 'lilts', 'liman', 'limas',
+          'limax', 'limba', 'limbi', 'limbo', 'limbs', 'limby', 'limed', 'limen', 'limes', 'limey', 'limma', 'limns', 'limos', 'limpa', 'limps', 'linac', 'linch',
+          'linds', 'lindy', 'lined', 'linen', 'liner', 'lines', 'liney', 'linga', 'lingo', 'lings', 'lingy', 'linin', 'links', 'linky', 'linns', 'linny', 'linos',
+          'lints', 'linty', 'linum', 'linux', 'lions', 'lipas', 'lipes', 'lipid', 'lipin', 'lipos', 'lippy', 'liras', 'lirks', 'lirot', 'lisks', 'lisle', 'lisps',
+          'lists', 'litai', 'litas', 'lited', 'liter', 'lites', 'lithe', 'litho', 'liths', 'litre', 'lived', 'liven', 'liver', 'lives', 'livid', 'livor', 'livre',
+          'llano', 'loach', 'loads', 'loafs', 'loams', 'loamy', 'loans', 'loast', 'loath', 'lobar', 'lobby', 'lobed', 'lobes', 'lobos', 'lobus', 'loche', 'lochs',
+          'locie', 'locis', 'locks', 'locos', 'locum', 'locus', 'loden', 'lodes', 'lodge', 'lofts', 'lofty', 'logan', 'loges', 'loggy', 'logia', 'logie', 'logoi',
+          'logon', 'logos', 'lohan', 'loids', 'loins', 'loipe', 'loirs', 'lokes', 'lolls', 'lolly', 'lolog', 'lomas', 'lomed', 'lomes', 'loner', 'longa', 'longe',
+          'longs', 'looby', 'looed', 'looey', 'loofa', 'loofs', 'looie', 'looks', 'looky', 'looms', 'loons', 'loony', 'loops', 'loopy', 'loord', 'loots', 'loped',
+          'loper', 'lopes', 'loppy', 'loral', 'loran', 'lords', 'lordy', 'lorel', 'lores', 'loric', 'loris', 'losed', 'losel', 'losen', 'loser', 'loses', 'lossy',
+          'lotah', 'lotas', 'lotes', 'lotic', 'lotos', 'lotsa', 'lotta', 'lotte', 'lotto', 'lotus', 'loued', 'lough', 'louie', 'louis', 'louma', 'lound', 'louns',
+          'loupe', 'loups', 'loure', 'lours', 'loury', 'louts', 'lovat', 'loved', 'lover', 'loves', 'lovey', 'lovie', 'lowan', 'lowed', 'lowes', 'lowly', 'lownd',
+          'lowne', 'lowns', 'lowps', 'lowry', 'lowse', 'lowts', 'loxed', 'loxes', 'lozen', 'luach', 'luaus', 'lubed', 'lubes', 'lubra', 'luces', 'lucks', 'lucky',
+          'lucre', 'ludes', 'ludic', 'ludos', 'luffa', 'luffs', 'luged', 'luger', 'luges', 'lulls', 'lulus', 'lumas', 'lumbi', 'lumme', 'lummy', 'lumps', 'lumpy',
+          'lunar', 'lunas', 'lunes', 'lunet', 'lunge', 'lungi', 'lungs', 'lunks', 'lunts', 'lupin', 'lured', 'lurer', 'lures', 'lurex', 'lurgi', 'lurgy', 'lurks',
+          'lurry', 'lurve', 'lused', 'luses', 'lushy', 'lusks', 'lusts', 'lusty', 'lusus', 'lutea', 'luted', 'luter', 'lutes', 'luvvy', 'luxed', 'luxer', 'luxes',
+          'lweis', 'lyams', 'lyard', 'lyart', 'lyase', 'lycea', 'lycee', 'lycra', 'lymes', 'lynes', 'lyres', 'lysed', 'lyses', 'lysin', 'lysis', 'lysol', 'lyssa',
+          'lyted', 'lytes', 'lythe', 'lytic', 'lytta', 'maaed', 'maare', 'maars', 'mabes', 'macas', 'macaw', 'maced', 'macer', 'maces', 'mache', 'machi', 'machs',
+          'macks', 'macle', 'macon', 'macro', 'madam', 'madge', 'madid', 'madre', 'maerl', 'mafia', 'mafic', 'mages', 'maggs', 'magot', 'magus', 'mahoe', 'mahua',
+          'mahwa', 'maids', 'maiko', 'maiks', 'maile', 'maill', 'mails', 'maims', 'mains', 'maire', 'mairs', 'maise', 'maist', 'maize', 'majas', 'majos', 'makaf',
+          'makai', 'makan', 'makar', 'makee', 'makes', 'makis', 'makos', 'malam', 'malar', 'malas', 'malax', 'males', 'malic', 'malik', 'malis', 'malls', 'malms',
+          'malmy', 'malts', 'malty', 'malus', 'malva', 'malwa', 'mamas', 'mamba', 'mamee', 'mamey', 'mamie', 'mamma', 'mammy', 'manas', 'manat', 'mandi', 'maneb',
+          'maned', 'maneh', 'manes', 'manet', 'manga', 'mange', 'mango', 'mangs', 'mangy', 'mania', 'manic', 'manis', 'manky', 'manna', 'manor', 'manos', 'manse',
+          'manta', 'manto', 'manty', 'manul', 'manus', 'mapau', 'maqui', 'marae', 'marah', 'maras', 'marcs', 'mardy', 'mares', 'marge', 'margs', 'maria', 'marid',
+          'marka', 'marks', 'marle', 'marls', 'marly', 'marms', 'maron', 'maror', 'marra', 'marri', 'marry', 'marse', 'marts', 'marvy', 'masas', 'mased', 'maser',
+          'mases', 'mashy', 'masks', 'mason', 'massa', 'masse', 'massy', 'masts', 'masty', 'masus', 'matai', 'mated', 'mater', 'mates', 'maths', 'matin', 'matlo',
+          'matte', 'matts', 'matza', 'matzo', 'mauby', 'mauds', 'mauls', 'maund', 'mauri', 'mausy', 'mauts', 'mauve', 'mauzy', 'maven', 'mavie', 'mavin', 'mavis',
+          'mawed', 'mawks', 'mawky', 'mawns', 'mawrs', 'maxed', 'maxes', 'maxis', 'maxim', 'maxos', 'mayas', 'mayed', 'mayos', 'mayst', 'mazed', 'mazer', 'mazes',
+          'mazey', 'mazut', 'mbira', 'meads', 'meals', 'mealy', 'meane', 'means', 'meany', 'meare', 'mease', 'meath', 'meats', 'meaty', 'mebos', 'mecca', 'mechs',
+          'mecks', 'mecum', 'medii', 'medle', 'meeds', 'meers', 'meets', 'meffs', 'meins', 'meint', 'meiny', 'meith', 'mekka', 'melas', 'melba', 'melds', 'melee',
+          'melic', 'melik', 'mells', 'melon', 'melts', 'melty', 'memes', 'memos', 'menad', 'mends', 'mened', 'menes', 'menge', 'mengs', 'mensa', 'mense', 'mensh',
+          'menta', 'mento', 'menus', 'meous', 'meows', 'merch', 'mercs', 'mercy', 'merde', 'mered', 'merel', 'merer', 'meres', 'merge', 'meril', 'meris', 'merit',
+          'merks', 'merle', 'merls', 'merry', 'merse', 'mesal', 'mesas', 'mesel', 'meses', 'meshy', 'mesic', 'mesne', 'meson', 'messy', 'mesto', 'metad', 'metae',
+          'metas', 'meted', 'meter', 'metes', 'metho', 'meths', 'metic', 'metif', 'metis', 'metol', 'metre', 'metro', 'meuse', 'meved', 'meves', 'mewed', 'mewls',
+          'meynt', 'mezes', 'mezze', 'mezzo', 'mhorr', 'miaou', 'miaow', 'miasm', 'miaul', 'micas', 'miche', 'micht', 'micks', 'micky', 'micos', 'micra', 'micro',
+          'middy', 'midge', 'midgy', 'midis', 'miens', 'mieve', 'miffs', 'miffy', 'mifty', 'miggs', 'mihas', 'mihis', 'miked', 'mikes', 'mikra', 'mikva', 'milch',
+          'milds', 'miler', 'miles', 'milfs', 'milia', 'milko', 'milks', 'milky', 'mille', 'mills', 'milor', 'milos', 'milpa', 'milts', 'milty', 'miltz', 'mimed',
+          'mimeo', 'mimer', 'mimes', 'mimsy', 'minae', 'minar', 'minas', 'mincy', 'minds', 'mined', 'miner', 'mines', 'minge', 'mings', 'mingy', 'minis', 'minke',
+          'minks', 'minny', 'minos', 'mints', 'mired', 'mires', 'mirex', 'mirid', 'mirin', 'mirks', 'mirky', 'mirls', 'mirly', 'miros', 'mirvs', 'miry', 'mises',
+          'misgo', 'misos', 'missa', 'missy', 'mists', 'misty', 'mitch', 'miter', 'mites', 'mitis', 'mitre', 'mitts', 'mixed', 'mixen', 'mixer', 'mixes', 'mixte',
+          'mixup', 'mizen', 'mizzy', 'mneme', 'moans', 'moats', 'mobby', 'mobes', 'mobey', 'mobie', 'moble', 'mocha', 'mochi', 'mochs', 'mochy', 'mocks', 'moder',
+          'modes', 'modge', 'modii', 'modus', 'moers', 'mofos', 'moggy', 'mohel', 'mohos', 'mohrs', 'mohua', 'mohur', 'moile', 'moils', 'moira', 'moire', 'moist',
+          'moits', 'mojos', 'mokes', 'mokie', 'mokis', 'mokos', 'molal', 'molar', 'molas', 'molds', 'moldy', 'moled', 'moles', 'molla', 'molls', 'molly', 'molto',
+          'molts', 'molys', 'momes', 'momma', 'mommy', 'momus', 'monad', 'monal', 'monas', 'monde', 'mondo', 'moner', 'mongo', 'mongs', 'monic', 'monie', 'monks',
+          'monos', 'monte', 'monty', 'moobs', 'mooch', 'moods', 'moody', 'mooed', 'mooks', 'moola', 'mooli', 'mools', 'mooly', 'moong', 'moons', 'moony', 'moops',
+          'moors', 'moory', 'moose', 'moots', 'moove', 'moped', 'moper', 'mopes', 'mopey', 'moppy', 'mopsy', 'mopus', 'morae', 'moras', 'morat', 'moray', 'morel',
+          'mores', 'moria', 'morne', 'morns', 'moron', 'morph', 'morra', 'morro', 'morse', 'morts', 'mosed', 'moses', 'mosey', 'mosks', 'mosso', 'mossy', 'moste',
+          'mosts', 'moted', 'moten', 'motes', 'motet', 'motey', 'moths', 'mothy', 'motif', 'motis', 'moton', 'motte', 'motto', 'motts', 'motty', 'motus', 'motza',
+          'mouch', 'moues', 'mould', 'mouls', 'moult', 'moups', 'mours', 'mousy', 'moved', 'mover', 'moves', 'mowas', 'mowed', 'mower', 'mowra', 'moxas', 'moxie',
+          'moyas', 'moyle', 'moyls', 'mozed', 'mozes', 'mozos', 'mpret', 'mucho', 'mucic', 'mucid', 'mucin', 'mucks', 'mucky', 'mucor', 'mucro', 'mudar', 'mudds',
+          'muddy', 'mudir', 'mudra', 'muffs', 'mufti', 'mugga', 'muggs', 'muggy', 'muhly', 'muids', 'muils', 'muirs', 'muist', 'mujik', 'mulch', 'mulct', 'muled',
+          'mules', 'muley', 'mulga', 'mulie', 'mulla', 'mulls', 'mulse', 'mulsh', 'mumms', 'mummy', 'mumps', 'mumsy', 'mumus', 'munch', 'munga', 'munge', 'mungo',
+          'mungs', 'munis', 'munts', 'muntu', 'muons', 'mural', 'muras', 'mured', 'mures', 'murex', 'murid', 'murks', 'murky', 'murls', 'murly', 'murra', 'murre',
+          'murri', 'murrs', 'murry', 'murti', 'murva', 'musar', 'musca', 'mused', 'muser', 'muses', 'muset', 'musha', 'mushy', 'musit', 'musks', 'musky', 'musos',
+          'musse', 'mussy', 'musth', 'musts', 'musty', 'mutch', 'muted', 'muter', 'mutes', 'mutha', 'mutis', 'muton', 'mutts', 'muxed', 'muxes', 'muzak', 'muzzy',
+          'mvule', 'myall', 'mylar', 'mynah', 'mynas', 'myoid', 'myoma', 'myope', 'myops', 'myopy', 'myrrh', 'mysid', 'mythi', 'myths', 'mythy', 'myxos', 'mzees',
+          'naams', 'naans', 'nabes', 'nabis', 'nabks', 'nabla', 'nabob', 'nache', 'nacho', 'nacre', 'nadas', 'nadir', 'naeve', 'naevi', 'naffs', 'nagas', 'naggy',
+          'nagor', 'nahal', 'naiad', 'naifs', 'naiks', 'nails', 'naira', 'nairu', 'naked', 'naker', 'nakfa', 'nalas', 'naled', 'nalla', 'named', 'namer', 'names',
+          'namma', 'namus', 'nanas', 'nance', 'nancy', 'nandu', 'nanna', 'nanos', 'nanua', 'napas', 'naped', 'napes', 'napoo', 'nappa', 'nappe', 'nappy', 'naras',
+          'narco', 'narcs', 'nards', 'nares', 'naric', 'naris', 'narks', 'narky', 'narre', 'nasal', 'nashi', 'nasty', 'natal', 'natch', 'nates', 'natis', 'natty',
+          'nauch', 'naunt', 'naval', 'navar', 'naves', 'navew', 'navvy', 'nawab', 'nazes', 'nazir', 'nazis', 'nduja', 'neafe', 'neals', 'neaps', 'nears', 'neath',
+          'neats', 'nebek', 'nebel', 'necks', 'neddy', 'neebs', 'neems', 'neeps', 'neese', 'nefie', 'negus', 'neifs', 'neigh', 'neist', 'neive', 'nelis', 'nelly',
+          'nemas', 'nemns', 'nempt', 'nenes', 'neons', 'neper', 'nepit', 'neral', 'nerds', 'nerdy', 'nerka', 'nerks', 'nerol', 'nerts', 'nertz', 'nerve', 'nervy',
+          'nests', 'netes', 'netop', 'netts', 'netty', 'neuks', 'neume', 'neums', 'nevel', 'neves', 'nevus', 'newbs', 'newed', 'newel', 'newer', 'newie', 'newsi',
+          'newsy', 'newts', 'nexts', 'nexus', 'ngana', 'ngati', 'ngoma', 'ngwee', 'nicad', 'nicer', 'niche', 'nicht', 'nicks', 'nicol', 'nidal', 'nided', 'nides',
+          'nidor', 'nidus', 'niefs', 'nieve', 'nifes', 'niffs', 'niffy', 'nifty', 'niger', 'nighs', 'nihil', 'nikab', 'nikah', 'nikau', 'nills', 'nimbi', 'nimbs',
+          'nimps', 'niner', 'nines', 'ninon', 'ninja', 'ninny', 'ninth', 'nippy', 'niqab', 'nirls', 'nirly', 'nisei', 'nisse', 'nisus', 'niter', 'nites', 'nitid',
+          'niton', 'nitre', 'nitro', 'nitry', 'nitty', 'nival', 'nixed', 'nixer', 'nixes', 'nixie', 'nizam', 'nkosi', 'noahs', 'nobby', 'nocks', 'nodal', 'noddy',
+          'nodes', 'nodus', 'noels', 'noggs', 'nohow', 'noils', 'noily', 'noint', 'noirs', 'noles', 'nolls', 'nolos', 'nomas', 'nomen', 'nomes', 'nomic', 'nomoi',
+          'nomos', 'nonan', 'nonas', 'nonce', 'nones', 'nonet', 'nongs', 'nonis', 'nonny', 'nonyl', 'noobs', 'nooit', 'nooks', 'nooky', 'noons', 'noops', 'nopal',
+          'noria', 'noris', 'norks', 'norma', 'norms', 'nosed', 'noser', 'noses', 'nosey', 'notal', 'noter', 'notes', 'notum', 'nould', 'noule', 'nouls', 'nouns',
+          'nouny', 'noups', 'novae', 'novas', 'novum', 'noway', 'nowed', 'nowls', 'nowts', 'nowty', 'noxal', 'noxes', 'noyau', 'noyed', 'noyes', 'nubby', 'nubia',
+          'nucha', 'nuddy', 'nuder', 'nudes', 'nudge', 'nudie', 'nudzh', 'nuffs', 'nugae', 'nuked', 'nukes', 'nulla', 'nulls', 'numbs', 'numen', 'nummy', 'nunny',
+          'nurds', 'nurdy', 'nurls', 'nurrs', 'nutso', 'nutsy', 'nutty', 'nyaff', 'nyala', 'nying', 'nylon', 'nymph', 'nyssa', 'oaked', 'oaken', 'oaker', 'oakum',
+          'oared', 'oases', 'oasis', 'oasts', 'oaten', 'oater', 'oaths', 'oaves', 'obang', 'obeah', 'obeli', 'obeys', 'obias', 'obied', 'obiit', 'obits', 'objet',
+          'oboes', 'obole', 'oboli', 'obols', 'occam', 'ocher', 'ochre', 'ochry', 'ocker', 'ocrea', 'octad', 'octan', 'octas', 'octed', 'octyl', 'oculi', 'odahs',
+          'odals', 'odeon', 'odeum', 'odism', 'odist', 'odium', 'odors', 'odour', 'odyle', 'odyls', 'ofays', 'offal', 'offed', 'offie', 'oflag', 'ofter', 'ogams',
+          'ogeed', 'ogees', 'oggin', 'ogham', 'ogive', 'ogled', 'ogler', 'ogles', 'ogmic', 'ogres', 'ohias', 'ohing', 'ohmic', 'ohone', 'oidia', 'oiled', 'oiler',
+          'oinks', 'oints', 'ojime', 'okapi', 'okays', 'okehs', 'okras', 'oktas', 'olden', 'older', 'oldie', 'oleic', 'olein', 'olent', 'oleos', 'oleum', 'olios',
+          'ollas', 'ollav', 'oller', 'ollie', 'ology', 'olpae', 'olpes', 'omasa', 'omber', 'ombre', 'omega', 'omens', 'omers', 'omits', 'omlah', 'omovs', 'omrah',
+          'oncer', 'onces', 'oncet', 'oncus', 'onely', 'oners', 'onery', 'onium', 'onkus', 'onlay', 'onned', 'ontic', 'oobit', 'oohed', 'oomph', 'oonts', 'ooped',
+          'oorie', 'ooses', 'ootid', 'oozed', 'oozes', 'opahs', 'opals', 'opens', 'opepe', 'opera', 'opine', 'oping', 'opium', 'oppos', 'opsin', 'opted', 'opter',
+          'optic', 'orach', 'oracy', 'orals', 'orang', 'orant', 'orate', 'orbed', 'orcas', 'orcin', 'ordos', 'oread', 'orfes', 'orgia', 'orgic', 'orgue', 'oribi',
+          'oriel', 'orles', 'orlon', 'orlop', 'ormer', 'ornis', 'orpin', 'orris', 'ortho', 'orval', 'orzos', 'oscar', 'oshac', 'osier', 'osmic', 'osmol', 'ossia',
+          'ostia', 'otaku', 'otary', 'ottar', 'otter', 'ottos', 'oubit', 'oucht', 'ouens', 'ouija', 'oulks', 'oumas', 'ounce', 'oundy', 'oupas', 'ouped', 'ouphe',
+          'ouphs', 'ourie', 'ousel', 'ousts', 'outby', 'outdo', 'outed', 'outer', 'outgo', 'outre', 'outro', 'outta', 'ouzel', 'ouzos', 'ovals', 'ovary', 'ovate',
+          'ovels', 'ovens', 'overs', 'overt', 'ovine', 'ovist', 'ovoid', 'ovoli', 'ovolo', 'ovule', 'owche', 'owies', 'owled', 'owler', 'owlet', 'owned', 'owner',
+          'owres', 'owrie', 'owsen', 'oxbow', 'oxers', 'oxeye', 'oxide', 'oxids', 'oxies', 'oxime', 'oxims', 'oxlip', 'oxter', 'oyers', 'ozeki', 'ozzie', 'paals',
+          'paans', 'pacas', 'paced', 'pacer', 'paces', 'pacey', 'pacha', 'packs', 'pacos', 'pacta', 'pacts', 'paddy', 'padis', 'padle', 'padma', 'padre', 'padri',
+          'paean', 'paedo', 'paeon', 'paged', 'pager', 'pages', 'pagle', 'pagod', 'pagri', 'paiks', 'pails', 'pains', 'paire', 'pairs', 'paisa', 'paise', 'pakka',
+          'palas', 'palay', 'palea', 'paled', 'paler', 'pales', 'palet', 'palis', 'palki', 'palla', 'palls', 'pally', 'palms', 'palmy', 'palpi', 'palps', 'palsa',
+          'pampa', 'panax', 'pance', 'panda', 'pands', 'pandy', 'paned', 'panes', 'panga', 'pangs', 'panic', 'panim', 'panko', 'panne', 'panni', 'panto', 'pants',
+          'panty', 'paoli', 'paolo', 'papas', 'papaw', 'papes', 'pappi', 'pappy', 'parae', 'paras', 'parch', 'pardi', 'pards', 'pardy', 'pared', 'paren', 'pareo',
+          'parer', 'pares', 'pareu', 'parev', 'parge', 'pargo', 'paris', 'parki', 'parks', 'parky', 'parle', 'parly', 'parma', 'parol', 'parps', 'parra', 'parrs',
+          'parry', 'parse', 'parti', 'parts', 'parve', 'parvo', 'paseo', 'pases', 'pasha', 'pashm', 'paska', 'paspy', 'passe', 'pasts', 'pated', 'paten', 'pater',
+          'pates', 'paths', 'patin', 'patka', 'patly', 'patte', 'patsy', 'pattu', 'pauas', 'pauls', 'pause', 'pavan', 'paved', 'paven', 'paver', 'paves', 'pavid',
+          'pavin', 'pavis', 'pawas', 'pawaw', 'pawed', 'pawer', 'pawks', 'pawky', 'pawls', 'pawns', 'paxes', 'payed', 'payor', 'paysd', 'peage', 'peags', 'peaks',
+          'peaky', 'peals', 'peans', 'peare', 'pears', 'peart', 'pease', 'peats', 'peaty', 'peavy', 'peaze', 'pebas', 'pechs', 'pecke', 'pecks', 'pecky', 'pedes',
+          'pedis', 'pedro', 'peece', 'peeks', 'peels', 'peens', 'peeoy', 'peepe', 'peeps', 'peers', 'peery', 'peeve', 'peggy', 'peghs', 'peins', 'peise', 'peize',
+          'pekan', 'pekes', 'pekin', 'pekoe', 'pelas', 'pelau', 'peles', 'pelfs', 'pells', 'pelma', 'pelon', 'pelta', 'pelts', 'penal', 'pence', 'pends', 'pendu',
+          'pened', 'penes', 'pengo', 'penie', 'penis', 'penks', 'penna', 'penni', 'penny', 'pents', 'peons', 'peony', 'pepla', 'pepos', 'peppy', 'pepsi', 'perai',
+          'perce', 'percs', 'perdu', 'perdy', 'perea', 'peres', 'peril', 'peris', 'perks', 'perky', 'perms', 'perns', 'perog', 'perps', 'perry', 'perse', 'perst',
+          'perts', 'perve', 'pervo', 'pervs', 'pervy', 'pesky', 'pesos', 'pesto', 'pests', 'pesty', 'petal', 'petar', 'petre', 'petri', 'petti', 'petto', 'petty',
+          'pewee', 'pewit', 'peyse', 'phage', 'phang', 'phare', 'pharm', 'pheer', 'phene', 'pheon', 'phese', 'phial', 'phish', 'phizz', 'phlox', 'phoca', 'phono',
+          'phons', 'photo', 'phots', 'phpht', 'phuts', 'phyla', 'phyle', 'piani', 'pians', 'pibal', 'pical', 'picas', 'piccy', 'picks', 'picky', 'picot', 'picra',
+          'picul', 'piend', 'piers', 'piert', 'pieta', 'piets', 'piety', 'piezo', 'piggy', 'pight', 'pigmy', 'piing', 'pikas', 'piked', 'piker', 'pikes', 'pikey',
+          'pikis', 'pikul', 'pilae', 'pilaf', 'pilao', 'pilar', 'pilau', 'pilaw', 'pilch', 'pilea', 'piled', 'pilei', 'piler', 'piles', 'pilis', 'pills', 'pilow',
+          'pilum', 'pilus', 'pimas', 'pimps', 'pinas', 'pinch', 'pined', 'pines', 'piney', 'pingo', 'pings', 'pinko', 'pinks', 'pinky', 'pinna', 'pinny', 'pinon',
+          'pinot', 'pinta', 'pinto', 'pints', 'pinup', 'pions', 'piony', 'pious', 'pioye', 'pioys', 'pipal', 'pipas', 'piped', 'piper', 'pipes', 'pipet', 'pipis',
+          'pipit', 'pippy', 'pipul', 'pique', 'pirai', 'pirls', 'pirns', 'pirog', 'pisco', 'pises', 'pisky', 'pisos', 'pissy', 'piste', 'pitas', 'piths', 'pithy',
+          'piton', 'pitot', 'pitta', 'piums', 'pixes', 'pized', 'pizes', 'plaas', 'plack', 'plage', 'plans', 'plaps', 'plash', 'plasm', 'plast', 'plats', 'platt',
+          'platy', 'playa', 'plays', 'plaza', 'plead', 'pleas', 'pleat', 'plebe', 'plebs', 'plena', 'pleon', 'plesh', 'plews', 'plica', 'plied', 'plier', 'plies',
+          'plims', 'pling', 'plink', 'ploat', 'plods', 'plong', 'plonk', 'plook', 'plops', 'plots', 'plotz', 'plouk', 'plows', 'ploye', 'ploys', 'pluck', 'plues',
+          'pluff', 'plugs', 'plumb', 'plume', 'plump', 'plums', 'plumy', 'plunk', 'pluot', 'plush', 'pluto', 'plyer', 'poach', 'poaka', 'poake', 'poboy', 'pocks',
+          'pocky', 'podal', 'poddy', 'podex', 'podge', 'podgy', 'podia', 'poems', 'poeps', 'poesy', 'poets', 'pogey', 'pogge', 'pogos', 'pohed', 'poilu', 'poind',
+          'pokal', 'poked', 'poker', 'pokes', 'pokey', 'pokie', 'polar', 'poled', 'poler', 'poles', 'poley', 'polio', 'polis', 'polje', 'polks', 'polls', 'polly',
+          'polos', 'polts', 'polys', 'pombe', 'pomes', 'pommy', 'pomos', 'pomps', 'ponce', 'poncy', 'ponds', 'pones', 'poney', 'ponga', 'pongo', 'pongs', 'pongy',
+          'ponks', 'ponts', 'ponty', 'ponzu', 'poods', 'pooed', 'pooey', 'poohs', 'pooka', 'pooks', 'pools', 'pooly', 'poons', 'poops', 'poopy', 'poori', 'poort',
+          'poots', 'poove', 'poovy', 'popes', 'poppa', 'poppy', 'popsy', 'porae', 'poral', 'pored', 'porer', 'pores', 'porge', 'porgy', 'porin', 'porks', 'porky',
+          'porno', 'porns', 'porny', 'porta', 'ports', 'porty', 'posed', 'poser', 'poses', 'posey', 'posho', 'posit', 'posse', 'posts', 'potae', 'potch', 'poted',
+          'potes', 'potin', 'potoo', 'potsy', 'potto', 'potts', 'potty', 'pouff', 'poufs', 'pouke', 'pouks', 'poule', 'poulp', 'poult', 'pours', 'pouts', 'pouty',
+          'powan', 'powin', 'pownd', 'powns', 'powny', 'powre', 'poxed', 'poxes', 'poynt', 'poyou', 'poyse', 'pozzy', 'praam', 'prads', 'prahu', 'prams', 'prana',
+          'prang', 'prank', 'praos', 'prase', 'prate', 'prats', 'pratt', 'praty', 'praus', 'prawn', 'prays', 'preed', 'preen', 'prees', 'preif', 'prems', 'premy',
+          'prent', 'preon', 'preop', 'preps', 'presa', 'prese', 'preve', 'prexy', 'preys', 'prial', 'pricy', 'prief', 'prier', 'pries', 'prigs', 'prill', 'prima',
+  
+        ])];
 
-await RequestingEnvironmentData();
-LogStyledMessage('Init EnvirData ysdk');
+        createApp({
+            setup() {
+                // --- Reactive State ---
+                const settings = reactive({
+                    darkMode: false,
+                    colorBlind: false,
+                    music: false,
+                    sound: true,
+                    difficulty: 'easy',
+                    playMode: 'human'
+                });
 
+                const gameState = reactive({
+                    dailyWord: '',
+                    status: 'playing', // playing, won, lost
+                    guesses: [],
+                    currentGuess: '',
+                    currentRowIndex: 0,
+                    lastPlayedDate: null,
+                    stats: { wins: 0, losses: 0, streak: 0 }
+                });
 
-                // Additional init1 modules
+                const aiState = reactive({
+                    isRunning: false,
+                    log: [],
+                    summary: '',
+                    isRevealed: false
+                });
 
-                // Additional init2 modules
-await InitPlayer();
-LogStyledMessage('Init Authorization ysdk');
+                const showModal = ref(null); // 'help', 'settings', 'gameover'
+                
+                const keyboard = [
+                    ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O'],
+                    ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'P'],
+                    ['K', 'L','Z', 'X', 'C', 'V', 'B', 'N', 'M'],
+                    ['⌫ Backspace', 'Enter']
+                ];
+                
+                const MAX_GUESSES = 6;
+                const WORD_LENGTH = 5;
 
-
-                // Additional init modules
-await LoadCloud();
-LogStyledMessage('Init Storage ysdk');
-
-await GetAllGames();
-LogStyledMessage('Init OpenURL ysdk');
-
-
-                initYSDK = true;
-                if (ygGameInstance != null)
-                    ygGameInstance.SendMessage('YG2Instance', 'InitSDKComplete');
-
-                LogStyledMessage('Init YandexSDK Success');
-
-            } catch (e) {
-                console.error('CRASH Initialization SDK: ', e);
-            }
-
-            if (!IsLocalHost() && !syncInit)
-                StartUnityInstance_IfUnloaded();
-        }
-
-        function InitGame() {
-            initGame = true;
-
-            // Additional start modules
-setTimeout(function () {
-    if (nowFullAdOpen == true)
-        YG2Instance('OpenInterAdv');
-}, 100);
-
-        }
-
-        // Additional script modules
-LogStyledMessage('PluginYG2 v2.0031  build: 70');
-
-var cloudSaves = NO_DATA;
-
-function SaveCloud(jsonData, flush) {
-    if (player == null) {
-        console.error('CRASH Save Cloud: ', 'Didnt have time to load');
-        return;
-    }
-    try {
-        player.setData({
-            saves: [jsonData],
-        }, flush);
-    } catch (e) {
-        console.error('CRASH Save Cloud: ', e.message);
-    }
-}
-
-function LoadCloud() {
-    return new Promise((resolve) => {
-        if (ysdk == null) {
-            Final(NO_DATA);
-            return;
-        }
-        try {
-            player.getData(["saves"]).then(data => {
-                if (data.saves) {
-                    Final(JSON.stringify(data.saves));
-                } else {
-                    Final(NO_DATA);
-                }
-            }).catch(() => {
-                console.error('Load Cloud Error!');
-                Final(NO_DATA);
-            });
-        }
-        catch (e) {
-            console.error('CRASH Load saves Cloud: ', e.message);
-            Final(NO_DATA);
-        }
-
-        function Final(res) {
-            cloudSaves = res;
-            YG2Instance('SetLoadSaves', res);
-            resolve(res);
-        }
-    });
-}
-
-
-function RewardedAdvShow(id) {
-    try {
-        ysdk.adv.showRewardedVideo(
-            {
-                callbacks:
-                {
-                    onOpen: () => {
-                        LogStyledMessage('Opened Rewarded Adv');
-                        YG2Instance('OpenRewardedAdv');
-                    },
-                    onClose: () => {
-                        LogStyledMessage('Closed Rewarded Adv');
-                        YG2Instance('CloseRewardedAdv');
-                        FocusGame();
-                    },
-                    onRewarded: () => {
-                        YG2Instance('RewardAdv', id);
-                    },
-                    onError: (err) => {
-                        console.error('Error Rewarded Adv', err);
-                        YG2Instance('ErrorRewardedAdv');
+                // --- Computed Properties ---
+                const grid = computed(() => {
+                    let gridArray = [];
+                    for (let i = 0; i < MAX_GUESSES; i++) {
+                        const row = { tiles: [], isShaking: false };
+                        const submittedGuess = gameState.guesses[i];
+                        for (let j = 0; j < WORD_LENGTH; j++) {
+                            if (submittedGuess) {
+                                row.tiles.push(submittedGuess[j]);
+                            } else if (i === gameState.currentRowIndex) {
+                                row.tiles.push({ char: gameState.currentGuess[j] || '', status: null });
+                            } else {
+                                row.tiles.push({ char: '', status: null });
+                            }
+                        }
+                        gridArray.push(row);
                     }
+                    return gridArray;
+                });
+
+                const keyStatus = computed(() => {
+                    const status = {};
+                    gameState.guesses.forEach(guess => {
+                        guess.forEach(tile => {
+                            const char = tile.char.toLowerCase();
+                            if (!status[char] || tile.status === 'correct') {
+                                status[char] = tile.status;
+                            } else if (status[char] !== 'correct' && tile.status === 'present') {
+                                status[char] = tile.status;
+                            }
+                        });
+                    });
+                    return status;
+                });
+
+                const difficultyWordLists = {
+                    easy: ANSWER_WORDS,
+                    medium: VALID_GUESSES.filter(w => w.length === 5).slice(0, 5000), // A medium set
+                    hard: VALID_GUESSES // The full monty
+                };
+                
+                // --- Methods ---
+
+                const playSound = (soundId) => {
+                    if (!settings.sound) return;
+                    const audio = document.getElementById(`audio-${soundId}`);
+                    if (audio) {
+                        audio.currentTime = 0;
+                        audio.play().catch(e => console.error("Audio play failed:", e));
+                    }
+                };
+                
+                const getDailySeed = () => {
+                    const d = new Date();
+                    return parseInt(`${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}`);
                 }
-            });
-    } catch (err) {
-        console.error('CRASH Rewarded Adv Show: ', err.message);
-    }
-}
 
-let allGamesData = NO_DATA;
-
-function GetAllGames() {
-    return new Promise((resolve) => {
-        if (ysdk == null) {
-            Final(NO_DATA);
-            return;
-        }
-        try {
-            ysdk.features.GamesAPI.getAllGames().then(({ games, developerURL }) => {
-                let appID = new Array(games);
-                let title = new Array(games);
-                let url = new Array(games);
-                let coverURL = new Array(games);
-                let iconURL = new Array(games);
-
-                for (var i = 0; i < games.length; i++) {
-                    appID[i] = games[i].appID;
-                    title[i] = games[i].title;
-                    url[i] = games[i].url;
-                    coverURL[i] = games[i].coverURL;
-                    iconURL[i] = games[i].iconURL;
-                }
-
-                let jsonGames = {
-                    "appID": appID,
-                    "title": title,
-                    "url": url,
-                    "coverURL": coverURL,
-                    "iconURL": iconURL,
-                    "developerURL": developerURL
+                const getWordForDay = (wordList) => {
+                    // Better get new word on every restart
+                    //const seed = getDailySeed();
+                    const seed = Date.now();
+                    // Simple pseudo-random generator based on seed
+                    const index = Math.floor((Math.sin(seed) + 1) * 100000) % wordList.length;
+                    return wordList[index];
                 };
 
-                Final(JSON.stringify(jsonGames));
-
-            }).catch(err => {
-                console.error('Error getAllGames', err);
-                Final(NO_DATA);
-            })
-        } catch (e) {
-            console.error('CRASH Get All Games: ', e.message);
-            Final(NO_DATA);
-        }
-
-        function Final(res) {
-            allGamesData = res;
-            resolve(res);
-        }
-    });
-}
-
-
-function SetLeaderboard(name, score, extraData) {
-    if (!ysdk) return;
-
-    try {
-        ysdk.leaderboards.setScore(name, score, extraData);
-    } catch (e) {
-        console.error('CRASH Set Leaderboard: ', e.message);
-    }
-}
-
-function GetLeaderboard(nameLB, quantityTop, quantityAround, photoSize, auth) {
-    if (!ysdk) return;
-
-    var jsonEntries = {
-        technoName: '',
-        isDefault: false,
-        isInvertSortOrder: false,
-        decimalOffset: 0,
-        type: ''
-    };
-
-    ysdk.leaderboards.getDescription(nameLB)
-        .then(res => {
-            jsonEntries.technoName = nameLB;
-            jsonEntries.isDefault = res.default;
-            jsonEntries.isInvertSortOrder = res.description.invert_sort_order;
-            jsonEntries.decimalOffset = res.description.score_format.options.decimal_offset;
-            jsonEntries.type = res.description.type;
-
-            return ysdk.leaderboards.getEntries(nameLB, {
-                quantityTop: quantityTop,
-                includeUser: auth,
-                quantityAround: quantityAround
-            });
-        })
-        .then(res => {
-            let jsonPlayers = EntriesLB(res, photoSize);
-            let combinedJson = { ...jsonEntries, ...jsonPlayers };
-
-            YG2Instance('LeaderboardEntries', JSON.stringify(combinedJson));
-        })
-        .catch(err => {
-            if (err.code === 'LEADERBOARD_PLAYER_NOT_PRESENT')
-               LogStyledMessage('Leaderboard player not present');
-            console.error(err);
-        });
-}
-
-function EntriesLB(res, photoSize) {
-    let LbdEntriesText = '';
-    let plCount = res.entries.length;
-
-    let ranks = new Array(plCount);
-    let photos = new Array(plCount);
-    let names = new Array(plCount);
-    let scores = new Array(plCount);
-    let uniqueIDs = new Array(plCount);
-    let extraDataArray = new Array(plCount);
-
-    for (i = 0; i < plCount; i++) {
-        ranks[i] = res.entries[i].rank;
-        scores[i] = res.entries[i].score;
-        uniqueIDs[i] = res.entries[i].player.uniqueID;
-        photos[i] = res.entries[i].player.getAvatarSrc(photoSize);
-
-        if (res.entries[i].extraData == "" || res.entries[i].extraData == null)
-            extraDataArray[i] = NO_DATA;
-        else
-            extraDataArray[i] = res.entries[i].extraData;
-
-        if (res.entries[i].player.scopePermissions.public_name !== "allow")
-            names[i] = "anonymous";
-        else
-            names[i] = res.entries[i].player.publicName;
-
-        LbdEntriesText += ranks[i] + '. ' + names[i] + ": " + scores[i] + '\n';
-    }
-
-    if (plCount === 0) {
-        LbdEntriesText = 'no data';
-    }
-
-    let jsonPlayers = {
-        "entries": LbdEntriesText,
-        "ranks": ranks,
-        "photos": photos,
-        "names": names,
-        "scores": scores,
-        "uniqueIDs": uniqueIDs,
-        "extraDataArray": extraDataArray
-    };
-
-    return jsonPlayers;
-}
-
-
-let nowFullAdOpen = false;
-
-function InterAdvShow() {
-    try {
-        if (ysdk == null){
-            LogStyledMessage('Cancel InterAdvShow: SDK is not initialized');
-            return;
-        }
-        if (nowFullAdOpen == true){
-            LogStyledMessage('Cancel InterAdvShow: The advertisement is already open');
-            return;
-        }
-
-        ysdk.adv.showFullscreenAdv({
-            callbacks: {
-                onOpen: () => {
-                    LogStyledMessage('Open Interstitial Adv');
-                    nowFullAdOpen = true;
-                    if (initGame === true) {
-                        YG2Instance('OpenInterAdv');
+                const initGame = (isRestart = false) => {
+                    const todayStr = new Date().toDateString();
+                    if (!isRestart && gameState.lastPlayedDate === todayStr && gameState.status !== 'playing') {
+                        // Already played today, show results
+                        showModal.value = 'gameover';
+                        return;
                     }
-                },
-                onClose: (wasShown) => {
-                    LogStyledMessage('Close Interstitial Adv');
-                    nowFullAdOpen = false;
-                    if (initGame === true) {
-                        if (wasShown) {
-                            YG2Instance('CloseInterAdv', 'true');
-                        }
-                            else {
-                            YG2Instance('CloseInterAdv', 'false');
+                    
+                    gameState.dailyWord = getWordForDay(difficultyWordLists[settings.difficulty]);
+                    gameState.status = 'playing';
+                    gameState.guesses = [];
+                    gameState.currentGuess = '';
+                    gameState.currentRowIndex = 0;
+                    showModal.value = null;
+
+                    // Reset AI state
+                    aiState.isRunning = false;
+                    aiState.log = [];
+                    aiState.summary = '';
+                    aiState.isRevealed = false;
+                };
+
+                const handleKey = (key) => {
+                    if (gameState.status !== 'playing' || settings.playMode !== 'human') return;
+
+                    if (key === 'Enter') {
+                        submitGuess();
+                    } else if (key === '⌫ Backspace') {
+                        gameState.currentGuess = gameState.currentGuess.slice(0, -1);
+                    } else if (gameState.currentGuess.length < WORD_LENGTH && /^[A-Z]$/i.test(key)) {
+                        gameState.currentGuess += key.toLowerCase();
+                        playSound('type');
+                    }
+                };
+
+                const submitGuess = () => {
+                    if (gameState.currentGuess.length !== WORD_LENGTH) return;
+                    
+                    if (!VALID_GUESSES.includes(gameState.currentGuess)) {
+                        shakeRow(gameState.currentRowIndex);
+                        playSound('invalid');
+                        return;
+                    }
+
+                    const result = checkGuess(gameState.currentGuess, gameState.dailyWord);
+                    gameState.guesses.push(result);
+                    
+                    // Trigger tile flip animation
+                    setTimeout(() => playSound('guess'), 300);
+
+                    // Check for win/loss
+                    if (gameState.currentGuess === gameState.dailyWord) {
+                        setTimeout(() => {
+                            gameState.status = 'won';
+                            playSound('win');
+                            saveProgress();
+                            showModal.value = 'gameover';
+                        }, WORD_LENGTH * 100 + 500);
+                    } else if (gameState.currentRowIndex === MAX_GUESSES - 1) {
+                        setTimeout(() => {
+                            gameState.status = 'lost';
+                            playSound('lose');
+                            saveProgress();
+                            showModal.value = 'gameover';
+                        }, WORD_LENGTH * 100 + 500);
+                    }
+
+                    gameState.currentRowIndex++;
+                    gameState.currentGuess = '';
+                };
+                
+                const checkGuess = (guess, answer) => {
+                    const result = [];
+                    const answerLetters = answer.split('');
+                    
+                    // First pass for correct letters
+                    for (let i = 0; i < WORD_LENGTH; i++) {
+                        if (guess[i] === answer[i]) {
+                            result[i] = { char: guess[i], status: 'correct' };
+                            answerLetters[i] = null; // Mark as used
                         }
                     }
-                    FocusGame();
-                },
-                onError: (error) => {
-                    console.error('Error Interstitial Adv', error);
-                    nowFullAdOpen = false;
-                    YG2Instance('ErrorInterAdv');
-                    FocusGame();
-                }
-            }
-        });
-    }
-    catch (e) {
-        console.error('CRASH Interstitial Adv Show: ', e.message);
-    }
-}
+                    
+                    // Second pass for present and absent letters
+                    for (let i = 0; i < WORD_LENGTH; i++) {
+                        if (!result[i]) {
+                            const letterIndex = answerLetters.indexOf(guess[i]);
+                            if (letterIndex !== -1) {
+                                result[i] = { char: guess[i], status: 'present' };
+                                answerLetters[letterIndex] = null; // Mark as used
+                            } else {
+                                result[i] = { char: guess[i], status: 'absent' };
+                            }
+                        }
+                    }
+                    return result;
+                };
 
-var environmentData = NO_DATA;
+                const shakeRow = (index) => {
+                    grid.value[index].isShaking = true;
+                    setTimeout(() => { grid.value[index].isShaking = false; }, 600);
+                };
 
-function RequestingEnvironmentData() {
-    return new Promise((resolve) => {
-        if (ysdk == null) {
-            Final(NO_DATA);
-            return;
-        }
-        try {
-            var browser = 'Other';
-            if (browser.includes('YaBrowser') || browser.includes('YaSearchBrowser'))
-                browser = 'Yandex';
-            else if (browser.includes('Opera') || browser.includes('OPR'))
-                browser = 'Opera';
-            else if (browser.includes('Firefox'))
-                browser = 'Firefox';
-            else if (browser.includes('MSIE'))
-                browser = 'IE';
-            else if (browser.includes('Edge'))
-                browser = 'Edge';
-            else if (browser.includes('Chrome'))
-                browser = 'Chrome';
-            else if (browser.includes('Safari'))
-                browser = 'Safari';
+                const saveProgress = () => {
+                    gameState.lastPlayedDate = new Date().toDateString();
+                    if (gameState.status === 'won') {
+                        gameState.stats.wins++;
+                        gameState.stats.streak++;
+                    } else {
+                        gameState.stats.losses++;
+                        gameState.stats.streak = 0;
+                    }
+                    localStorage.setItem('wordlyGameState', JSON.stringify(gameState));
+                };
 
-            let jsonEnvir = {
-                "language": ysdk.environment.i18n.lang,
-                "domain": ysdk.environment.i18n.tld,
-                "deviceType": ysdk.deviceInfo.type,
-                "isMobile": ysdk.deviceInfo.isMobile(),
-                "isDesktop": ysdk.deviceInfo.isDesktop(),
-                "isTablet": ysdk.deviceInfo.isTablet(),
-                "isTV": ysdk.deviceInfo.isTV(),
-                "appID": ysdk.environment.app.id,
-                "browserLang": ysdk.environment.browser.lang,
-                "payload": ysdk.environment.payload,
-                "platform": navigator.platform,
-                "browser": browser
-            };
+                const loadProgress = () => {
+                    const savedState = localStorage.getItem('wordlyGameState');
+                    if (savedState) {
+                        Object.assign(gameState, JSON.parse(savedState));
+                    }
+                };
 
-            Final(JSON.stringify(jsonEnvir));
-            LogStyledMessage("Environment Data: " + JSON.stringify(jsonEnvir));
-        }
-        catch (e) {
-            console.error('CRASH Requesting Environment Data: ', e.message);
-            Final(NO_DATA);
-        }
+                const restartGame = () => {
+                    //show alert to confirm
+                    if (gameState.status === 'playing') {
+                        if (!confirm('Are you sure you want to restart the game?')) {
+                            return;
+                        }
+                    }
+                    showModal.value = null;
+                    // For human mode, just reset the board for a new day
+                    if (settings.playMode === 'human') {
+                         alert("A new word is available each reset!. This will reset the board if you are stuck.");
+                    }
+                    initGame(true);
+                };
+                
+                // --- AI Logic ---
+                const runAiVsAi = async () => {
+                    initGame(true);
+                    aiState.isRunning = true;
+                    let possibleWords = [...difficultyWordLists[settings.difficulty]];
+                    let currentAiGuess = 'slate'; // A good starting word
+                    
+                    for(let i = 0; i < MAX_GUESSES; i++) {
+                         // Add guess to board for visualization
+                        gameState.currentGuess = currentAiGuess;
+                        const result = checkGuess(currentAiGuess, gameState.dailyWord);
+                        gameState.guesses.push(result);
+                        gameState.currentRowIndex++;
+                        gameState.currentGuess = '';
 
-        function Final(res) {
-            environmentData = res;
-            YG2Instance('SetEnvirData', res);
-            resolve(res);
-        }
-    });
-}
+                        aiState.log.push({
+                            guessNum: i + 1,
+                            guess: currentAiGuess,
+                            guessResult: result,
+                            possibleWords: possibleWords.length
+                        });
 
-var playerData = NO_DATA;
-let player = null;
+                        await new Promise(res => setTimeout(res, 1000)); // Pause for effect
 
-async function InitPlayer() {
-    return new Promise(async (resolve) => {
-        try {
-            if (!ysdk)
-                return Final(NotAuthorized());
+                        if (currentAiGuess === gameState.dailyWord) {
+                            gameState.status = 'won';
+                            aiState.summary = `AI won in ${i+1} guesses!`;
+                            break;
+                        }
 
-            player = await ysdk.getPlayer();
+                        // Filter word list based on result
+                        const absent = new Set();
+                        const present = {}; // { 'a': [positions_not_to_be] }
+                        const correct = {}; // { 0: 's', 2: 'a' ... }
+                        
+                        result.forEach((tile, index) => {
+                            if (tile.status === 'correct') {
+                                correct[index] = tile.char;
+                            } else if (tile.status === 'present') {
+                                if (!present[tile.char]) present[tile.char] = [];
+                                present[tile.char].push(index);
+                            } else {
+                                // Only add to absent if not also present/correct in the guess
+                                if (!result.find(t => t.char === tile.char && (t.status === 'present' || t.status === 'correct'))) {
+                                    absent.add(tile.char);
+                                }
+                            }
+                        });
 
-            if (!player.isAuthorized())
-                return Final(NotAuthorized());
+                        possibleWords = possibleWords.filter(word => {
+                            if (word === currentAiGuess) return false;
 
-            const authJson = {
-                "playerAuth": "resolved",
-                "playerName": player.getName(),
-                "playerId": player.getUniqueID(),
-                "playerPhoto": player.getPhoto('medium'),
-                "payingStatus": player.getPayingStatus()
-            };
+                            // Check correct letters
+                            for (const pos in correct) {
+                                if (word[pos] !== correct[pos]) return false;
+                            }
 
-            return Final(JSON.stringify(authJson));
-        } catch (e) {
-            console.error('CRASH init Player: ', e.message);
-            return Final(NotAuthorized());
-        }
+                            // Check present letters
+                            for (const char in present) {
+                                if (!word.includes(char)) return false;
+                                present[char].forEach(pos => {
+                                    if (word[pos] === char) return false;
+                                });
+                            }
+                            
+                            // Check absent letters
+                            for(const char of word) {
+                                if(absent.has(char)) return false;
+                            }
+                            return true;
+                        });
 
-        function Final(res) {
-            playerData = res;
-            YG2Instance('SetAuth', res);
-            resolve(res);
-        }
-    });
-}
+                        if (possibleWords.length === 0) {
+                             aiState.summary = 'AI failed: No possible words left.';
+                             break;
+                        }
 
+                        currentAiGuess = chooseNextBestGuess(possibleWords, VALID_GUESSES);
+                    }
+                    
+                    if (gameState.status !== 'won') {
+                        gameState.status = 'lost';
+                        aiState.summary = aiState.summary || `AI lost. The word was ${gameState.dailyWord}.`;
+                    }
+                    
+                    aiState.isRunning = false;
+                    aiState.isRevealed = true;
+                };
 
-function NotAuthorized() {
-    let authJson = {
-        "playerAuth": "rejected",
-        "playerName": "unauthorized",
-        "playerId": "unauthorized",
-        "playerPhoto": "no data",
-        "payingStatus": "unknown"
-    };
-    return JSON.stringify(authJson);
-}
-
-function OpenAuthDialog() {
-    if (ysdk !== null) {
-        try {
-            ysdk.auth.openAuthDialog().then(() => {
-                InitPlayer()
-                    .then(() => {
-                        YG2Instance('LoggedIn');
+                const chooseNextBestGuess = (possibleWords, allWords) => {
+                    if (possibleWords.length <= 2) {
+                        return possibleWords[0];
+                    }
+                    // A simple heuristic: find a word (even if not possible) that has the most common unused letters
+                    const letterFrequency = {};
+                    possibleWords.forEach(word => {
+                        new Set(word.split('')).forEach(char => {
+                            letterFrequency[char] = (letterFrequency[char] || 0) + 1;
+                        });
                     });
-            });
-        }
-        catch (e) {
-            LogStyledMessage('CRASH Open Auth Dialog: ', e.message);
-        }
-    }
-}
+                    
+                    let bestGuess = '';
+                    let maxScore = -1;
+                    
+                    allWords.forEach(word => {
+                        const score = [...new Set(word.split(''))].reduce((acc, char) => acc + (letterFrequency[char] || 0), 0);
+                        if (score > maxScore) {
+                            maxScore = score;
+                            bestGuess = word;
+                        }
+                    });
 
+                    return bestGuess;
+                };
+                
+                const getStatusColor = (status) => {
+                    const colors = {
+                        correct: settings.colorBlind ? 'var(--color-correct)' : '#538d4e',
+                        present: settings.colorBlind ? 'var(--color-present)' : '#b59f3b',
+                        absent: '#3a3a3c',
+                    };
+                    return colors[status];
+                }
 
-        document.body.appendChild(script);
+                // --- Lifecycle & Watchers ---
+                const init = () => { // Renamed from onMounted for clarity
+                    // Load settings from localStorage
+                    const savedSettings = localStorage.getItem('wordlySettings');
+                    if (savedSettings) {
+                        Object.assign(settings, JSON.parse(savedSettings));
+                    }
+                    
+                    loadProgress();
+                    initGame();
+                    
+                    window.addEventListener('keydown', (e) => {
+                        handleKey(e.key);
+                    });
+                };
+                
+                // Watch for settings changes to update body classes, as body is outside the Vue app mount point.
+                watch(() => settings.darkMode, (isDark) => {
+                    document.documentElement.classList.toggle('dark-mode', isDark);
+                }, { immediate: true });
+
+                watch(() => settings.colorBlind, (isColorBlind) => {
+                    document.documentElement.classList.toggle('color-blind', isColorBlind);
+                }, { immediate: true });
+
+                watch(settings, (newSettings) => {
+                    localStorage.setItem('wordlySettings', JSON.stringify(newSettings));
+                    // Handle music toggle
+                    const musicAudio = document.getElementById('audio-music');
+                    if (newSettings.music) {
+                        musicAudio.volume = 0.3;
+                        musicAudio.play().catch(e => console.log("Music play blocked by browser."));
+                    } else {
+                        musicAudio.pause();
+                    }
+                }, { deep: true });
+                
+                // Return all reactive state and methods to the template
+                return {
+                    settings,
+                    gameState,
+                    aiState,
+                    showModal,
+                    grid,
+                    keyboard,
+                    keyStatus,
+                    init,
+                    handleKey,
+                    restartGame,
+                    runAiVsAi,
+                    getStatusColor
+                };
+            }
+        }).mount('#app');
     </script>
 </body>
 </html>
